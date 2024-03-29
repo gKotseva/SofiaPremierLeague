@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { Home } from './components/home/Home'
 import { TableStandings } from './components/tables/tableStandings/TableStandings'
 import { TableFixtures } from './components/tables/tableFixtures/TableFixtures'
+import { TableResults } from './components/tables/tableResults/TableResults'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Home />
       <TableStandings />
       <TableFixtures />
+      <TableResults />
     </BrowserRouter>
     </>
   )
