@@ -2,8 +2,8 @@ import './index.css'
 import { Navigation } from "./components/navigation/Navigation"
 import {BrowserRouter} from 'react-router-dom'
 import { Home } from './components/home/Home'
-import { TableStandings } from './components/tables/TableStandings'
-import { TableResults } from './components/tables/tableResults/TableResults'
+import { TableStandings } from './components/tables/tableStandings/TableStandings'
+import { TableFixtures } from './components/tables/tableFixtures/TableFixtures'
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
       <Navigation />
       <Home />
       <TableStandings />
-      <TableResults />
+      <TableFixtures />
     </BrowserRouter>
     </>
   )

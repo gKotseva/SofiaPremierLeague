@@ -1,6 +1,6 @@
-import './TableResults.modules.css'
+import './TableFixtures.modules.css'
 
-export function TableResults () {
+export function TableFixtures () {
     return (
         <>
                 <div className='fixtures'>
