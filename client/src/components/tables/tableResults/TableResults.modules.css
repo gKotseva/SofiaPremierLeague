@@ -1,0 +1,45 @@
+.fixtures {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    background-color: #007854;
+    padding: 2em;
+    color: white;
+}
+
+.fixtures table {
+    border-collapse: collapse;
+}
+
+.fixtures th, .fixtures td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.fixtures thead {
+    background-color: black;
+    color: white;
+}
+
+.fixtures td:nth-child(2) {
+    width: 300px;
+    text-align: end;
+}
+
+.fixtures td:nth-child(4) {
+    width: 300px;
+    text-align: left;
+}
+
+.fixtures td:nth-child(5) {
+    width: 200px;
+    text-align: center;
+}
+
+.fixtures td:nth-child(1), .fixtures td:nth-child(3), .fixtures td:nth-child(6), .fixtures td:nth-child(7), .fixtures td:nth-child(8), .fixtures td:nth-child(9) {
+    width: 120px;
+    text-align: center;
+}
+
+
+
