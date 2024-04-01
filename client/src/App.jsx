@@ -5,6 +5,7 @@ import { Home } from './components/home/Home'
 import { TableStandings } from './components/tables/tableStandings/TableStandings'
 import { TableFixtures } from './components/tables/tableFixtures/TableFixtures'
 import { TableResults } from './components/tables/tableResults/TableResults'
+import { Contact } from './components/contact/Contact'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
     <BrowserRouter>
       <Navigation />
+      <Contact />
       <Home />
       <TableStandings />
       <TableFixtures />
