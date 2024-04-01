@@ -1,3 +1,5 @@
+import './HallOfFame.modules.css'
+
 export function HallOfFame () {
     return (
         <>

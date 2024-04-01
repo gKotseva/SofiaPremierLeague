@@ -1,0 +1,32 @@
+.hall-of-fame {
+    padding: 2em;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hall-of-fame thead {
+    padding: 1em;
+    background-color: #808080;
+}
+
+.hall-of-fame thead th {
+    color: black;
+}
+
+.hall-of-fame th {
+    width: 250px;
+}
+
+.hall-of-fame tbody {
+    margin-top: 0.5em;
+}
+
+.hall-of-fame td {
+    width: 250px;
+    padding: 2em 0.5em;
+    text-align: center;
+    border: 1px solid black;
+}
