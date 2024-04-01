@@ -6,6 +6,7 @@ import { TableStandings } from './components/tables/tableStandings/TableStanding
 import { TableFixtures } from './components/tables/tableFixtures/TableFixtures'
 import { TableResults } from './components/tables/tableResults/TableResults'
 import { Contact } from './components/contact/Contact'
+import { HallOfFame } from './components/hallOfFame/HallOfFame'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
     <BrowserRouter>
       <Navigation />
+      <HallOfFame />
       <Contact />
       <Home />
       <TableStandings />
