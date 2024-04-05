@@ -3,4 +3,5 @@ export const PATH = {
     nakazaniq: '/nakazaniq',
     mixzona: '/mix-zona',
     igrachi: '/prava',
+    kontakti: '/kontakti'
 }
