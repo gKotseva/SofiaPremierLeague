@@ -62,9 +62,8 @@ export function Navigation() {
                     <li className='menu-item'><Link to="/hall-of-fame">Hall of Fame</Link></li>
                     <li className='menu-item'><Link to="/za-nas">За нас <span>&#11167;</span></Link>
                         <ul className='dropdown'>
-                            <li><Link to="/zapisvane">Записване</Link></li>
-                            <li><Link to="/pravila">Правила</Link></li>
                             <li><Link to="/kontakti">Контакти</Link></li>
+                            <li><Link to="/pravila">Правила</Link></li>
                         </ul>
                     </li>
                 </ul>
