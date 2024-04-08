@@ -4,5 +4,6 @@ export const PATH = {
     mixzona: '/mix-zona',
     igrachi: '/prava',
     kontakti: '/kontakti',
-    pravila: '/pravila'
+    pravila: '/pravila',
+    hallOfFame: '/hall-of-fame'
 }
