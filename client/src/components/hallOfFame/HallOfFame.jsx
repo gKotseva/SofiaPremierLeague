@@ -3,6 +3,8 @@ import './HallOfFame.modules.css'
 export function HallOfFame () {
     return (
         <>
+        <div className='hall-of-fame-table'>
+            <h1>Hall of fame</h1>
             <table className="hall-of-fame">
                 <thead>
                     <tr>
@@ -89,6 +91,17 @@ export function HallOfFame () {
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div className='fastest-goal'>
+            <h1>Най-бърз гол:</h1>
+            <p>Емо Стефанов (Titanite Old Stars) – 9 секунда в мача Вълците – Titanite Old Stars (2:2 – 7 юни 2020 година)</p>
+            <iframe src="https://www.youtube.com/watch?v=DKaqVCd3SjY"></iframe>
+        </div>
+        <div className='200-goals'>
+            <h1>Клуб 200 гола</h1>
+            <h4>Играч - име</h4>
+            <img />
+        </div>
         </>
     )
 }
