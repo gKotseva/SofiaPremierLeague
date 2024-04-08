@@ -7,6 +7,8 @@ import { Contact } from './components/zaNas/Contact.jsx'
 import { Navigation } from './components/navigation/Navigation.jsx'
 import { Pravila } from './components/zaNas/Pravila.jsx'
 import { HallOfFame } from './components/hallOfFame/HallOfFame.jsx'
+import { Prava } from './components/novini/Prava.jsx'
+import { Nakazaniq } from './components/novini/Nakazaniq.jsx'
 
 
 
@@ -20,6 +22,8 @@ function App() {
       <Route path={PATH.kontakti} element={<Contact />}></Route>
       <Route path={PATH.pravila} element={<Pravila />}></Route>
       <Route path={PATH.hallOfFame} element={<HallOfFame />}></Route>
+      <Route path={PATH.prava} element={<Prava />}></Route>
+      <Route path={PATH.nakazaniq} element={<Nakazaniq />}></Route>
     </Routes>
     </>
   )
