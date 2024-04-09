@@ -10,14 +10,14 @@ export function Navigation() {
             <div className='menu-container'>
                 <ul>
                     <li className='menu-item'><Link to="/">Начало</Link></li>
-                    <li className='menu-item'><Link to="/novini">Новини <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Новини <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/nakazaniq">Наказания</Link></li>
                             <li><Link to="/mix-zona">Миксзона</Link></li>
                             <li><Link to="/prava">Играчи със спрени състезателни права</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link to="/klasatsii">Класации <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Класации <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/select-gol-mesets">Select - гол на месеца</Link></li>
                             <li><Link to="/kerelski-igrach-sedmitsa">Kerelski - играч на седмицата</Link></li>
@@ -27,13 +27,13 @@ export function Navigation() {
                             <li><Link to="/cairo-fareplay">Cairo - феърплей</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link to="/sustezaniq">Състезания <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Състезания <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/zimna-kupa">Зимна купа SPL MK Football &#11166;</Link>
                                 <ul className='dropdown-second'>
                                     <li><Link to="/klasirane-programa-resultati">Класиране, програма, резултати – 2024</Link></li>
                                     <li><Link to="/shema-turnir">Схема на турнира - 2024</Link></li>
-                                    <li><Link to="/zimna-kupa-statistica">Статистика</Link></li>
+                                    <li><Link>Статистика</Link></li>
                                 </ul>
                             </li>
                             <li><Link to="/superliga">Select Суперлига</Link></li>
@@ -60,7 +60,7 @@ export function Navigation() {
                         </ul>
                     </li>
                     <li className='menu-item'><Link to="/hall-of-fame">Hall of Fame</Link></li>
-                    <li className='menu-item'><Link to="/za-nas">За нас <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>За нас <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/kontakti">Контакти</Link></li>
                             <li><Link to="/pravila">Правила</Link></li>
