@@ -47,16 +47,16 @@ export function Navigation() {
                     </li>
                     <li className='menu-item'><Link to="/statistika">Статистика <span>&#11167;</span></Link>
                         <ul className='dropdown'>
-                            <li><Link to="/statistica-superliga">Select Суперлига</Link></li>
-                            <li><Link to="/statistica-malus">SPL Malus-Sport</Link></li>
-                            <li><Link to="/statistica-cairo">SPL 1 Cairo</Link></li>
-                            <li><Link to="/statistica-flame">SPL 2 Flame</Link></li>
-                            <li><Link to="/statistica-arabesk">SPL 3 Arabesk</Link></li>
-                            <li><Link to="/statistica-spl4">SPL 4</Link></li>
-                            <li><Link to="/statistica-spl5">SPL 5</Link></li>
-                            <li><Link to="/statistica-sever">SPL Север</Link></li>
-                            <li><Link to="/statistica-iztok">SPL Изток</Link></li>
-                            <li><Link to="/statistica-summer">Malus Summer Football Cup - 2020</Link></li>
+                            <li><Link to="/statistika-superliga">Select Суперлига</Link></li>
+                            <li><Link to="/statistika-malus">SPL Malus-Sport</Link></li>
+                            <li><Link to="/statistika-cairo">SPL 1 Cairo</Link></li>
+                            <li><Link to="/statistika-flame">SPL 2 Flame</Link></li>
+                            <li><Link to="/statistika-arabesk">SPL 3 Arabesk</Link></li>
+                            <li><Link to="/statistika-spl4">SPL 4</Link></li>
+                            <li><Link to="/statistika-spl5">SPL 5</Link></li>
+                            <li><Link to="/statistika-sever">SPL Север</Link></li>
+                            <li><Link to="/statistika-iztok">SPL Изток</Link></li>
+                            <li><Link to="/statistika-summer">Malus Summer Football Cup - 2020</Link></li>
                         </ul>
                     </li>
                     <li className='menu-item'><Link to="/hall-of-fame">Hall of Fame</Link></li>

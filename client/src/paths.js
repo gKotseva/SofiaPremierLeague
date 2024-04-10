@@ -1,10 +1,10 @@
 export const PATH = {
     home: '/',
-    mixzona: '/mix-zona',
+    nakazaniq: '/nakazaniq',
     igrachi: '/prava',
+    mixzona: '/mix-zona',
     kontakti: '/kontakti',
     pravila: '/pravila',
     hallOfFame: '/hall-of-fame',
     prava: '/prava',
-    nakazaniq: '/nakazaniq',
 }
