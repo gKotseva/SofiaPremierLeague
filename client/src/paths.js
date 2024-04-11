@@ -7,4 +7,5 @@ export const PATH = {
     pravila: '/pravila',
     hallOfFame: '/hall-of-fame',
     prava: '/prava',
+    SelectGolNaMesetsa: '/select-gol-mesets'
 }
