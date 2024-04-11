@@ -9,6 +9,7 @@ import { Pravila } from './components/zaNas/Pravila.jsx'
 import { HallOfFame } from './components/hallOfFame/HallOfFame.jsx'
 import { Prava } from './components/novini/Prava.jsx'
 import { Nakazaniq } from './components/novini/Nakazaniq.jsx'
+import { MixZona } from './components/novini/Mixzona.jsx'
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <Route path={PATH.hallOfFame} element={<HallOfFame />}></Route>
       <Route path={PATH.prava} element={<Prava />}></Route>
       <Route path={PATH.nakazaniq} element={<Nakazaniq />}></Route>
+      <Route path={PATH.mixzona} element={<MixZona />}></Route>
     </Routes>
     </>
   )
