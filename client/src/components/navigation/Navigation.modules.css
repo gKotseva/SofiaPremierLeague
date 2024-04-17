@@ -2,7 +2,7 @@
     background-color: #e7e3db;
     display: flex;
     justify-content: center;
-    padding-top: 2em;
+    padding: 2em 0em 2em 0em;
 }
 
 .logo {
@@ -15,7 +15,6 @@
     justify-content: center;
     background-color: #00563B;
     padding: 2em;
-    margin-top: 2em;
 }
 
 .menu-container ul {
