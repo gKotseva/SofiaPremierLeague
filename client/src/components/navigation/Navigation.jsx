@@ -7,6 +7,7 @@ export function Navigation() {
             <div className="logo-container">
                 <img src="./spl-logo.png" className="logo" alt="SPL Logo" />
             </div>
+        
             <div className='menu-container'>
                 <ul>
                     <li className='menu-item'><Link to="/">Начало</Link></li>
@@ -20,6 +21,7 @@ export function Navigation() {
                     <li className='menu-item'><Link>Класации <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/select-gol-mesets">Select - гол на месеца</Link></li>
+                            <li><Link to="/igrata-arabesk">Играта на Arabesk</Link></li>
                             <li><Link to="/kerelski-igrach-sedmitsa">Kerelski - играч на седмицата</Link></li>
                             <li><Link to="/gripsocks-igrach-sedmitsa">GripSocks BG - играч на седмицата</Link></li>
                             <li><Link to="/vr7-igrach-sedmitsa">VR7 Services - играч на седмицата</Link></li>
