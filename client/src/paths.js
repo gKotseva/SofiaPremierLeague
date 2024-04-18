@@ -15,5 +15,12 @@ export const PATH = {
     BarberShopMartyGolNaSedmitsata: '/barber-gol-sedmitsa',
     CairoFareplay: '/cairo-fareplay',
     IgrataNaArabesk: '/igrata-arabesk',
+    superliga: '/superliga',
+    malus: '/malus',
+    cairo: '/cairo',
+    flame: '/flame',
+    arabesk: '/arabesk',
+    spl4: '/spl4',
+    spl5: '/spl5',
 
 }

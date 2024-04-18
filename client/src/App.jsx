@@ -17,6 +17,13 @@ import { VR7ServicesIgrachNaSedmitsata } from './components/klasatsii/VR7Service
 import { BarberShopMartyGolNaSedmitsata } from './components/klasatsii/BarberShopMartyGolNaSedmitsata.jsx'
 import { CairoFareplay } from './components/klasatsii/CairoFarePlay.jsx'
 import { IgrataNaArabesk } from './components/klasatsii/IgrataNaArabesk.jsx'
+import { Select } from './components/sustezaniya/Select.jsx'
+import { SPLMalus } from './components/sustezaniya/SPLMalus.jsx'
+import { SPL1Cairo } from './components/sustezaniya/SPL1Cairo.jsx'
+import { SPL2Flame } from './components/sustezaniya/SPL2Flame.jsx'
+import { SPL3Arabesk } from './components/sustezaniya/SPL3Arabesk.jsx'
+import { SPL4 } from './components/sustezaniya/SPL4.jsx'
+import { SPL5 } from './components/sustezaniya/SPL5.jsx'
 
 
 
@@ -40,6 +47,13 @@ function App() {
       <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />}></Route>
       <Route path={PATH.CairoFareplay} element={<CairoFareplay />}></Route>
       <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />}></Route>
+      <Route path={PATH.superliga} element={<Select />}></Route>
+      <Route path={PATH.malus} element={<SPLMalus />}></Route>
+      <Route path={PATH.cairo} element={<SPL1Cairo />}></Route>
+      <Route path={PATH.flame} element={<SPL2Flame />}></Route>
+      <Route path={PATH.arabesk} element={<SPL3Arabesk />}></Route>
+      <Route path={PATH.spl4} element={<SPL4 />}></Route>
+      <Route path={PATH.spl5} element={<SPL5 />}></Route>
     </Routes>
     </>
   )
