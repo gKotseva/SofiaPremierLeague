@@ -32,5 +32,6 @@ export const PATH = {
     statistikaSever: '/statistika-sever',
     statistikaIztok: '/statistika-iztok',
     statistikaSummer: '/statistika-summer',
-
+    shemaTurnir:'/shema-turnir',
+    statistikaKupa: '/statistika-kupa'
 }
