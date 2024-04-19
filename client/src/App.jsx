@@ -24,7 +24,16 @@ import { SPL2Flame } from './components/sustezaniya/SPL2Flame.jsx'
 import { SPL3Arabesk } from './components/sustezaniya/SPL3Arabesk.jsx'
 import { SPL4 } from './components/sustezaniya/SPL4.jsx'
 import { SPL5 } from './components/sustezaniya/SPL5.jsx'
-
+import { Arabesk } from './components/statistika/pages/Arabesk.jsx'
+import { Superliga } from './components/statistika/pages/Superliga.jsx'
+import { Malus } from './components/statistika/pages/Malus.jsx'
+import { Cairo } from './components/statistika/pages/Cairo.jsx'
+import { Flame } from './components/statistika/pages/Flame.jsx'
+import { SPLSever } from './components/statistika/pages/SPLSever.jsx'
+import { SPLIztok } from './components/statistika/pages/SPLIztok.jsx'
+import { MalusFootballSummerCup } from './components/statistika/pages/MalusFootballSummerCup.jsx'
+import { StatistikaSPL4 } from './components/statistika/pages/StatistikaSPL4.jsx'
+import { StatistikaSPL5 } from './components/statistika/pages/StatistikaSPL5.jsx'
 
 
 function App() {
@@ -54,6 +63,16 @@ function App() {
       <Route path={PATH.arabesk} element={<SPL3Arabesk />}></Route>
       <Route path={PATH.spl4} element={<SPL4 />}></Route>
       <Route path={PATH.spl5} element={<SPL5 />}></Route>
+      <Route path={PATH.statistikaSuperliga} element={<Superliga />}></Route>
+      <Route path={PATH.statistikaMalus} element={<Malus />}></Route>
+      <Route path={PATH.statistikaCairo} element={<Cairo />}></Route>
+      <Route path={PATH.statistikaFlame} element={<Flame />}></Route>
+      <Route path={PATH.statistikaArabesk} element={<Arabesk />}></Route>
+      <Route path={PATH.statistikaSpl4} element={<StatistikaSPL4 />}></Route>
+      <Route path={PATH.statistikaSpl5} element={<StatistikaSPL5 />}></Route>
+      <Route path={PATH.statistikaSever} element={<SPLSever />}></Route>
+      <Route path={PATH.statistikaIztok} element={<SPLIztok />}></Route>
+      <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />}></Route>
     </Routes>
     </>
   )

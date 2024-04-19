@@ -22,5 +22,15 @@ export const PATH = {
     arabesk: '/arabesk',
     spl4: '/spl4',
     spl5: '/spl5',
+    statistikaSuperliga: '/statistika-superliga',
+    statistikaMalus: '/statistika-malus',
+    statistikaCairo: '/statistika-cairo',
+    statistikaFlame: '/statistika-flame',
+    statistikaArabesk: '/statistika-arabesk',
+    statistikaSpl4: '/statistika-spl4',
+    statistikaSpl5: '/statistika-spl5',
+    statistikaSever: '/statistika-sever',
+    statistikaIztok: '/statistika-iztok',
+    statistikaSummer: '/statistika-summer',
 
 }
