@@ -31,11 +31,11 @@ export function Navigation() {
                     </li>
                     <li className='menu-item'><Link>Състезания <span>&#11167;</span></Link>
                         <ul className='dropdown'>
-                            <li><Link to="/zimna-kupa">Зимна купа SPL MK Football &#11166;</Link>
+                            <li><Link>Зимна купа SPL MK Football &#11166;</Link>
                                 <ul className='dropdown-second'>
                                     <li><Link to="/klasirane-programa-resultati">Класиране, програма, резултати – 2024</Link></li>
                                     <li><Link to="/shema-turnir">Схема на турнира - 2024</Link></li>
-                                    <li><Link>Статистика</Link></li>
+                                    <li><Link to="/statistika-kupa">Статистика</Link></li>
                                 </ul>
                             </li>
                             <li><Link to="/superliga">Select Суперлига</Link></li>
@@ -47,7 +47,7 @@ export function Navigation() {
                             <li><Link to="/spl5">SPL 5</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link to="/statistika">Статистика <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Статистика <span>&#11167;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/statistika-superliga">Select Суперлига</Link></li>
                             <li><Link to="/statistika-malus">SPL Malus-Sport</Link></li>
