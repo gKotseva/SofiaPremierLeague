@@ -7,9 +7,11 @@ export function HomeMain () {
     return (
         <>
         <Home />
+        <div>
+            <TableFixtures />
+            <TableResults />
+        </div>
         <TableStandings />
-        <TableFixtures />
-        <TableResults />
         </>
     )
 }

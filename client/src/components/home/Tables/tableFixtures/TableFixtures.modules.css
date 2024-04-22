@@ -1,10 +1,12 @@
 .fixtures {
     display: flex;
-    justify-content: center;
-    margin-top: 3em;
-    background-color: #007854;
+    justify-content: right;
+    margin: 1em 3em 1em 3em;
+    background-color: #99BC85;
     padding: 2em;
-    color: white;
+    color: black;
+    border-top-left-radius:15px;
+    border-top-right-radius:15px;
 }
 
 .fixtures table {
@@ -22,17 +24,17 @@
 }
 
 .fixtures td:nth-child(2) {
-    width: 300px;
+    width: 400px;
     text-align: end;
 }
 
 .fixtures td:nth-child(4) {
-    width: 300px;
+    width: 400px;
     text-align: left;
 }
 
 .fixtures td:nth-child(5) {
-    width: 200px;
+    width: 120px;
     text-align: center;
 }
 
