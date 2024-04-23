@@ -3,7 +3,8 @@ import './TableFixtures.modules.css'
 export function TableFixtures () {
     return (
         <>
-                <div className='fixtures'>
+        <div className='fixtures'>
+            <h1>Програма</h1>
             <table>
                 <thead>
                     <tr>
