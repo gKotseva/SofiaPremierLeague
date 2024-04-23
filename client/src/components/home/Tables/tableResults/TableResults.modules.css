@@ -1,16 +1,21 @@
 .results {
     display: flex;
-    justify-content: right;
-    margin: 1em 3em 1em 3em;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0em;
     background-color: #99BC85;
     padding: 2em;
     color: black;
-    border-top-left-radius:15px;
-    border-top-right-radius:15px;
 }
+
+.results h1 {
+    padding-bottom: 1em;
+}
+
 
 .results table {
     border-collapse: collapse;
+    max-width: 100em;
 }
 
 .results th, .results td {
@@ -43,5 +48,9 @@
     text-align: center;
 }
 
+.results tr:hover {
+    background-color: #faf0e6;
+    transition: ease-in 0.4s;
+}
 
 

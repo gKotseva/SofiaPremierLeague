@@ -4,6 +4,7 @@ export function TableResults () {
     return (
         <>
         <div className='results'>
+            <h1>Резултати</h1>
             <table>
                 <thead>
                     <tr>
