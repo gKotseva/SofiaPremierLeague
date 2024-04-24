@@ -1,28 +1,51 @@
-.contact {
+.holder {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-    padding: 3em;
-}
-
-.contact h1 {
-    border-bottom: 2px solid #00563B;
-    padding: 0em 1em 0.5em 1em;
-}
-
-.contact a {
-    color: #00563B;
+    gap: 5em;
+    padding: 2em;
     margin-top: 3em;
+    background-color: #99BC85;
 }
 
-.contact p {
-    margin-top: 2em;
+.signIn,
+.contact,
+.address {
+    max-width: 20em;
+    text-align: center;
 }
 
-.contact span {
-    color: #00563B;
-    font-weight: bold;
+.signIn > h1,
+.contact > h1,
+.address > h1 {
+    margin-top: 30px;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.signIn > a {
+    color: white;
+}
+
+.signIn > p {
+    margin: 20px 0px;
+}
+
+.signIn > span {
+    color: white;
+}
+
+.address > p {
+    margin-bottom: 20px;
+}
+
+.contact > p {
+    margin-bottom: 10px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
     margin-top: 1em;
 }
