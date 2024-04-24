@@ -27,9 +27,9 @@ export function Contact () {
             </div>
         </div>
         <div className='socials'>
-            <img src='icons8-facebook-48.png'></img>
-            <img src='icons8-instagram-48.png'></img>
-            <img src='icons8-youtube-48.png'></img>
+            <a href='https://www.facebook.com/sofiapremierleague'><img src='icons8-facebook-48.png' /></a>
+            <a href='https://www.instagram.com/splofficial1/'><img src='icons8-instagram-48.png'></img></a>
+            <a href='https://www.youtube.com/@spltv2183'><img src='icons8-youtube-48.png'></img></a>
         </div>
         </>
     )
