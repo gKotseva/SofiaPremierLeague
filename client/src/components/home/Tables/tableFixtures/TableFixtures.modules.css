@@ -48,7 +48,7 @@
     text-align: center;
 }
 
-.fixtures tr:hover {
+.fixtures tbody tr:hover {
     background-color: #faf0e6;
     transition: ease-in 0.4s;
 }
