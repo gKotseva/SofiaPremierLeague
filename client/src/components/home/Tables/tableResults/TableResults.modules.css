@@ -3,9 +3,19 @@
     flex-direction: column;
     align-items: center;
     margin: 1em 0em;
-    background-color: #99BC85;
     padding: 2em;
     color: black;
+    animation-name: slide-in;
+    animation-duration: 3s;
+}
+
+@keyframes slide-in {
+    from {
+      margin-right: 100%;
+    }
+    to {
+      margin-right: 0%;
+    }
 }
 
 .results h1 {
@@ -49,7 +59,7 @@
 }
 
 .results tbody tr:hover {
-    background-color: #faf0e6;
+    background-color: #99BC85;
     transition: ease-in 0.4s;
 }
 
