@@ -1,10 +1,14 @@
 export function Prava(){
     return (
         <>
-            <h2>Играчи със спрени състезателни права</h2>
-            <p>Играч 1</p>
-            <p>Играч 2</p>
-            <p>Играч 3</p>
+            <div className="forbidden">
+                <h1>Играчи със спрени състезателни права</h1>
+            </div>
+            <div className="forbidden-players">
+                <p>Играч 1</p>
+                <p>Играч 2</p>
+                <p>Играч 3</p>
+            </div>
         </>
     )
 }
