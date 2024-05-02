@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react"
+import * as service from '../../services/klasatsiiService'
+
 export function CairoFareplay () {
+
+    const [awards, setAwards] = useState([])
+
+    useEffect(() => {
+        const fetchAwards = async() => {
+            try {
+                const response = await service.getAll('cairo')
+                setAwards(response)
+                console.log(response)
+            } catch (error) {
+                console.error('Error fetching awards: ', error)
+            }
+        }
+
+        fetchAwards()
+    }, [])
+
     return (
         <>
             <h1>CAIRO ФЕЪРПЛЕЙ!</h1>
