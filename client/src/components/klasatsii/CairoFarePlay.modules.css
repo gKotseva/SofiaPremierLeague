@@ -1,0 +1,38 @@
+.award-heading {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.award-heading h1, p {
+    margin-bottom: 2em;
+}
+
+.award-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 30px #00563b83;
+    width: 30em;
+    padding: 2em;
+    background-color: transparent;
+    border-radius: 2em;
+}
+
+.card img {
+    width: 300px;
+    height: auto;
+    border-radius: 1em;
+}
+
+.card p {
+    margin: 0; 
+    writing-mode: vertical-lr;
+}
