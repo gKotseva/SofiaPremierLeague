@@ -1,4 +1,4 @@
-import './CairoFarePlay.modules.css'
+import './styles/styles.css'
 
 import { useEffect, useState } from "react"
 import * as service from '../../services/klasatsiiService'

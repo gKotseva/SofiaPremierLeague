@@ -11,12 +11,14 @@
 
 .award-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
 .card {
     display: flex;
+    flex: 0 0 33.333%;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 30px #00563b83;
@@ -24,6 +26,7 @@
     padding: 2em;
     background-color: transparent;
     border-radius: 2em;
+    margin: 1em;
 }
 
 .card img {
