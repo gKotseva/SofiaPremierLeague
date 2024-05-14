@@ -14,16 +14,16 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
+    padding: 2em;
 }
 
 .card {
     display: flex;
-    flex: 0 0 33.333%;
+    flex: 0 0 30%;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 30px #00563b83;
-    width: 30em;
-    padding: 2em;
+    padding: 1em;
     background-color: transparent;
     border-radius: 2em;
     margin: 1em;
@@ -36,6 +36,8 @@
 }
 
 .card p {
-    margin: 0; 
+    margin: 0 auto;
+    text-align: center;
     writing-mode: vertical-lr;
+    letter-spacing: 1px;
 }
