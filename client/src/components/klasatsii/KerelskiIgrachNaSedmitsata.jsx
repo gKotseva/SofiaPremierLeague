@@ -30,7 +30,7 @@ export function KerelskiIgrachNaSedmitsata () {
         <div className='award-container'>
             {awards.map((award) => 
             <div className='card' key={award.id}>
-                <h5>{award.name}</h5>
+                <p>{award.name}</p>
                 <img src={award.image}/>
             </div>
             )}
