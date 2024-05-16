@@ -19,9 +19,7 @@ export function CairoFareplay () {
 
         fetchAwards()
     }, [])
-
-    console.log(awards)
-
+    
     return (
         <>
         <div className='award-heading'>
