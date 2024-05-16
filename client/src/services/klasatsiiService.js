@@ -24,3 +24,13 @@ export const getArabesk = async () => {
     const result = await request.get('/api/klasatsii/igrata-arabesk');
     return result;
 };
+
+export const getAward5Years = async () => {
+    const result = await request.get('/api/hall-of-fame/5years')
+    return result;
+}
+
+export const getAward200Goals = async () => {
+    const result = await request.get('/api/hall-of-fame/200goals')
+    return result;
+}
