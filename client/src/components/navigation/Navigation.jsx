@@ -25,7 +25,7 @@ export function Navigation() {
                             <li><Link to="/kerelski-igrach-sedmitsa">Kerelski - играч на седмицата</Link></li>
                             <li><Link to="/gripsocks-igrach-sedmitsa">GripSocks BG - играч на седмицата</Link></li>
                             <li><Link to="/vr7-igrach-sedmitsa">VR7 Services - играч на седмицата</Link></li>
-                            <li><Link to="/barber-gol-sedmitsa">Barber Ship Marty - гол на седмицата</Link></li>
+                            <li><Link to="/barber-gol-sedmitsa">Barber Shop Marty - гол на седмицата</Link></li>
                             <li><Link to="/cairo-fareplay">Cairo - феърплей</Link></li>
                         </ul>
                     </li>
