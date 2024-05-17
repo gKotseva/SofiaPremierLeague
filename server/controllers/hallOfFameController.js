@@ -24,4 +24,16 @@ router.get('/200goals', async (req, res) => {
     }
 });
 
+router.get('/champions', async (req, res) => {
+    try {
+        const sqlQuery = 'SELECT * FROM hallOfFame_champions'
+        const results = await db.executeQuery(sqlQuery)
+        res.json(results)
+    }
+    catch (error) {
+        console.error('Error executing query:', error)
+        res.status(500).json({ error: 'Internal server error' });
+    }
+})
+
 module.exports = router
