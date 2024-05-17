@@ -34,6 +34,38 @@ export function HallOfFame () {
         fetchAward200Goals()
     }, [])
 
+    const [data, setData] = useState([])
+    const [leagues, setLeagues] = useState([])
+    const [years, setYears] = useState([])
+
+    useEffect(() => {
+        const fetchChampionsData = async () => {
+            try {
+                const response = await service.getChampions()
+
+                const leaguesSet = new Set(data.map(item => item.league))
+                const yearsSet = new Set(data.map(item => item.year))
+
+                setLeagues([...leaguesSet])
+                setYears([...yearsSet])
+                setData(response)
+            }
+            catch (error) {
+                console.error('Error fetching champions: ', error)
+            }
+        }
+
+        fetchChampionsData()
+    }, [data])
+
+    const getChampion = (year, league) => {
+        const championEntry = data.find(
+            item => item.year === year && item.league === league
+        )
+        return championEntry ? championEntry.champion : 'N/A'
+    }
+
+
     return (
         <>
         <div className='hall-of-fame-table'>
@@ -42,86 +74,20 @@ export function HallOfFame () {
                 <thead>
                     <tr>
                         <th>Сезон</th>
-                        <th>Суперлига - Шампион</th>
-                        <th>SPL - Шампион</th>
-                        <th>SPL1 - Шампион</th>
-                        <th>SPL2 - Шампион</th>
-                        <th>SPL3 - Шампион</th>
-                        <th>SPL4 - Шампион</th>
-                        <th>SPL Изток - Шампион</th>
+                        {leagues.map(league => (
+                            <th key={league}>{league}</th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2016/2017</td>
-                        <td></td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2017/2018</td>
-                        <td></td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2018/2019</td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td>Шампион 4</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2019/2020</td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td>Шампион 4</td>
-                        <td>Шампион 5</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/2021</td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td>Шампион 4</td>
-                        <td>Шампион 5</td>
-                        <td>Шампион 6</td>
-                        <td>Шампион 7</td>
-                    </tr>
-                    <tr>
-                        <td>2021/2022</td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td>Шампион 4</td>
-                        <td>Шампион 5</td>
-                        <td>Шампион 6</td>
-                        <td>Шампион 7</td>
-                    </tr>
-                    <tr>
-                        <td>2022/2023</td>
-                        <td>Шампион 1</td>
-                        <td>Шампион 2</td>
-                        <td>Шампион 3</td>
-                        <td>Шампион 4</td>
-                        <td>Шампион 5</td>
-                        <td>Шампион 6</td>
-                        <td>Шампион 7</td>
-                    </tr>
+                    {years.map( year => (
+                        <tr key={year}>
+                            <td>{year}</td>
+                            {leagues.map(league => (
+                                <td key={`${year}-${league}`}>{getChampion(year, league)}</td>
+                            ))}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -130,23 +96,27 @@ export function HallOfFame () {
             <p>Емо Стефанов (Titanite Old Stars) – 9 секунда в мача Вълците – Titanite Old Stars (2:2 – 7 юни 2020 година)</p>
             <iframe src="https://www.youtube.com/watch?v=DKaqVCd3SjY"></iframe>
         </div>
-        <div className='200-goals-container'>
+        <div className='hall-of-fame-container'>
+            <div className='200-goals-container'>
             <h1>Клуб 200 гола</h1>
             {award200Goals.map((award) => 
                 <div className='200-goals-card' key={award.id}>
                     <h4>{award.name}</h4>
+                    <hr></hr>
                     <img src={award.image} />
                 </div>
         )}
-        </div>
-        <div className='5-years-container'>
+            </div>
+            <div className='5-years-container'>
             <h1>5 години в SPL</h1>
             {award5Years.map((award) => 
                 <div className='5-years-card' key={award.id}>
                     <h4>{award.name}</h4>
+                    <hr></hr>
                     <img src={award.image} />
             </div>
             )}
+            </div>
         </div>
         </>
     )
