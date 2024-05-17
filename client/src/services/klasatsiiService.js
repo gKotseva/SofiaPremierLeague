@@ -34,3 +34,8 @@ export const getAward200Goals = async () => {
     const result = await request.get('/api/hall-of-fame/200goals')
     return result;
 }
+
+export const getChampions = async () => {
+    const result = await request.get('/api/hall-of-fame/champions')
+    return result;
+}
