@@ -6,7 +6,10 @@
     justify-content: center;
     align-items: center;
 }
-
+.hall-of-fame-table h1 {
+    margin-top: 2em;
+    text-align: center;
+}
 .hall-of-fame thead {
     padding: 1em;
     background-color: #808080;
@@ -29,4 +32,56 @@
     padding: 2em 0.5em;
     text-align: center;
     border: 1px solid black;
+}
+
+.fastest-goal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #99BC85;
+    padding: 2em;
+}
+
+.fastest-goal h1 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.hall-of-fame-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 2em;
+}
+
+
+.hall-of-fame-container h1 {
+    margin-bottom: 2em;
+}
+
+.hall-of-fame-container img {
+    width: 400px;
+    border-radius: 2em;
+}
+
+.hall-of-fame-container div div {
+    flex: 0 0 30%;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 30px #00563b83;
+    padding: 1em;
+    background-color: transparent;
+    border-radius: 2em;
+    margin-bottom: 2em;
+    padding: 2em;
+}
+
+.hall-of-fame-container div div h4 {
+    margin-bottom: 1em;
+}
+
+.hall-of-fame-container div div hr {
+    margin-bottom: 1em;
 }
