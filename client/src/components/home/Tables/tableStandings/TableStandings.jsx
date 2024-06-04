@@ -4,6 +4,7 @@ export function TableStandings () {
     return (
         <>
         <div className='standings'>
+            <h1>Класиране</h1>
             <table>
                 <thead>
                     <tr>
