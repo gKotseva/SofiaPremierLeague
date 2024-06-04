@@ -11,6 +11,7 @@ export function IgrataNaArabesk () {
         const fetchAwards = async() => {
             try {
                 const response = await service.getArabesk()
+                console.log(response)
                 setAwards(response)
             } catch (error) {
                 console.error('Error fetching awards: ', error)
@@ -29,7 +30,7 @@ export function IgrataNaArabesk () {
         <div className='award-container'>
             {awards.map((award) => 
             <div className='card' key={award.id}>
-                <p>{award.name}</p>
+                <p>{award.team_name}</p>
                 <img src={award.image}/>
             </div>
             )}

@@ -48,7 +48,7 @@ router.get('/kerelski-igrach-sedmitsa', async (req, res) => {
 
 router.get('/igrata-arabesk', async (req, res) => {
     try {
-        const sqlQuery = 'SELECT * FROM awards_arabesk ORDER BY id desc';
+        const sqlQuery = 'SELECT a.image, t.team_name FROM awards_arabesk a INNER JOIN teams t ON t.team_id = a.team_id';
         const results = await db.executeQuery(sqlQuery);
         res.json(results);
     } catch (error) {
