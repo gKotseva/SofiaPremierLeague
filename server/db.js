@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'Sofia_Premier_League'
+    database: 'spl'
 });
 
 function executeQuery(sql) {
