@@ -27,6 +27,10 @@
     background-color: transparent;
     border-radius: 2em;
     margin: 1em;
+    background-color: #75a576;
+    color: whitesmoke; 
+    font-size: 20px;
+    
 }
 
 .card img {
@@ -39,5 +43,6 @@
     margin: 0 auto;
     text-align: center;
     writing-mode: vertical-lr;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-right: 2em;
 }
