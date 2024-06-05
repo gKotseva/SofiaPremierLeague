@@ -29,7 +29,7 @@ export function CairoFareplay () {
         <div className='award-container'>
         {awards.map((award) => 
             <div className='card' key={award.id}>
-                <p>{award.name}</p>
+                <p>{award.team_name}</p>
                 <img src={award.image}/>
             </div>
         )}
