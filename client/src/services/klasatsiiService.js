@@ -22,7 +22,6 @@ export const getKerelski = async () => {
 
 export const getArabesk = async () => {
     const result = await request.get('/api/klasatsii/igrata-arabesk');
-    console.log(result)
     return result;
 };
 
