@@ -24,7 +24,7 @@
 }
 
 .hall-of-fame td {
-    padding: 1em 0.5em;
+    padding: 0.2em 1em;
     text-align: center;
     border: 1px solid black;
 }
@@ -79,4 +79,20 @@
 
 .hall-of-fame-container div div hr {
     margin-bottom: 1em;
+}
+
+.hallOfFame-logo-name {
+    text-align: center;
+}
+
+.hallOfFame-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hallOfFame-team-logo {
+    margin-top: 10px;
+    width: 40px;
+    height: auto;
 }
