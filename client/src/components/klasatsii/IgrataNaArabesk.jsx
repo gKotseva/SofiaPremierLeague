@@ -11,7 +11,6 @@ export function IgrataNaArabesk () {
         const fetchAwards = async() => {
             try {
                 const response = await service.getArabesk()
-                console.log(response)
                 setAwards(response)
             } catch (error) {
                 console.error('Error fetching awards: ', error)
