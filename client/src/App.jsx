@@ -36,6 +36,7 @@ import { StatistikaSPL4 } from './components/statistika/pages/StatistikaSPL4.jsx
 import { StatistikaSPL5 } from './components/statistika/pages/StatistikaSPL5.jsx'
 import { ShemaKupa } from './components/statistika/pages/ShemaKupa.jsx'
 import { Kupa } from './components/statistika/pages/Kupa.jsx'
+import { Admin } from './components/admin/admin.jsx'
 
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
       <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />}></Route>
       <Route path={PATH.shemaTurnir} element={<ShemaKupa />}></Route>
       <Route path={PATH.statistikaKupa} element={<Kupa />}></Route>
+      <Route path={PATH.admin} element={<Admin />}></Route>
     </Routes>
     </>
   )

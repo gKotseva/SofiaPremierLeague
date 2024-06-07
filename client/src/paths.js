@@ -33,5 +33,6 @@ export const PATH = {
     statistikaIztok: '/statistika-iztok',
     statistikaSummer: '/statistika-summer',
     shemaTurnir:'/shema-turnir',
-    statistikaKupa: '/statistika-kupa'
+    statistikaKupa: '/statistika-kupa',
+    admin: '/admin',
 }
