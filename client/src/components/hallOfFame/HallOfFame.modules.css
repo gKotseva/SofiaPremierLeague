@@ -96,3 +96,18 @@
     width: 40px;
     height: auto;
 }
+
+@keyframes dropAnimation {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-drop {
+    animation: dropAnimation 0.8s ease-out forwards;
+}

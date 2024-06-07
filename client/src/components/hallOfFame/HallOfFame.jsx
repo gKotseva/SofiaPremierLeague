@@ -75,14 +75,14 @@ export function HallOfFame() {
                     <tbody>
                 {years.map(year => (
                      <tr key={year}>
-                     <td>{year}</td>
+                     <td >{year}</td>
                         {leagues.map(league => {
                             const { team_name, logo_image } = getChampion(year, league);
                         return (
                             <td key={`${year}-${league}`} className='hallOfFame-logo-name'>
                             <div className='hallOfFame-content'>
                             <span className='team-name'>{team_name}</span>
-                            {logo_image && <img src={logo_image} className='hallOfFame-team-logo' alt={team_name} />}
+                            {logo_image && <img src={logo_image} className='hallOfFame-team-logo animate-drop' alt={team_name} />}
                         </div>
                         </td>
                         );
