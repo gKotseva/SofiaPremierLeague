@@ -43,45 +43,45 @@ function App() {
 
   return (
     <>
-    <Navigation />
-    <Routes>
-      <Route path={PATH.home} element={<HomeMain />}></Route>
-      <Route path={PATH.kontakti} element={<Contact />}></Route>
-      <Route path={PATH.pravila} element={<Pravila />}></Route>
-      <Route path={PATH.hallOfFame} element={<HallOfFame />}></Route>
-      <Route path={PATH.prava} element={<Prava />}></Route>
-      <Route path={PATH.nakazaniq} element={<Nakazaniq />}></Route>
-      <Route path={PATH.mixzona} element={<MixZona />}></Route>
-      <Route path={PATH.SelectGolNaMesetsa} element={<SelectGolNaMesetsa />}></Route>
-      <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<KerelskiIgrachNaSedmitsata />}></Route>
-      <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<GripSocksIgrachNaSedmitsata />}></Route>
-      <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<VR7ServicesIgrachNaSedmitsata />}></Route>
-      <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />}></Route>
-      <Route path={PATH.CairoFareplay} element={<CairoFareplay />}></Route>
-      <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />}></Route>
-      <Route path={PATH.superliga} element={<Select />}></Route>
-      <Route path={PATH.malus} element={<SPLMalus />}></Route>
-      <Route path={PATH.cairo} element={<SPL1Cairo />}></Route>
-      <Route path={PATH.flame} element={<SPL2Flame />}></Route>
-      <Route path={PATH.arabesk} element={<SPL3Arabesk />}></Route>
-      <Route path={PATH.spl4} element={<SPL4 />}></Route>
-      <Route path={PATH.spl5} element={<SPL5 />}></Route>
-      <Route path={PATH.statistikaSuperliga} element={<Superliga />}></Route>
-      <Route path={PATH.statistikaMalus} element={<Malus />}></Route>
-      <Route path={PATH.statistikaCairo} element={<Cairo />}></Route>
-      <Route path={PATH.statistikaFlame} element={<Flame />}></Route>
-      <Route path={PATH.statistikaArabesk} element={<Arabesk />}></Route>
-      <Route path={PATH.statistikaSpl4} element={<StatistikaSPL4 />}></Route>
-      <Route path={PATH.statistikaSpl5} element={<StatistikaSPL5 />}></Route>
-      <Route path={PATH.statistikaSever} element={<SPLSever />}></Route>
-      <Route path={PATH.statistikaIztok} element={<SPLIztok />}></Route>
-      <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />}></Route>
-      <Route path={PATH.shemaTurnir} element={<ShemaKupa />}></Route>
-      <Route path={PATH.statistikaKupa} element={<Kupa />}></Route>
-      <Route path={PATH.admin} element={<Admin />}></Route>
-    </Routes>
+      {location.pathname !== '/admin' && <Navigation />}
+      <Routes>
+        <Route path={PATH.home} element={<HomeMain />} />
+        <Route path={PATH.kontakti} element={<Contact />} />
+        <Route path={PATH.pravila} element={<Pravila />} />
+        <Route path={PATH.hallOfFame} element={<HallOfFame />} />
+        <Route path={PATH.prava} element={<Prava />} />
+        <Route path={PATH.nakazaniq} element={<Nakazaniq />} />
+        <Route path={PATH.mixzona} element={<MixZona />} />
+        <Route path={PATH.SelectGolNaMesetsa} element={<SelectGolNaMesetsa />} />
+        <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<KerelskiIgrachNaSedmitsata />} />
+        <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<GripSocksIgrachNaSedmitsata />} />
+        <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<VR7ServicesIgrachNaSedmitsata />} />
+        <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />} />
+        <Route path={PATH.CairoFareplay} element={<CairoFareplay />} />
+        <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />} />
+        <Route path={PATH.superliga} element={<Select />} />
+        <Route path={PATH.malus} element={<SPLMalus />} />
+        <Route path={PATH.cairo} element={<SPL1Cairo />} />
+        <Route path={PATH.flame} element={<SPL2Flame />} />
+        <Route path={PATH.arabesk} element={<SPL3Arabesk />} />
+        <Route path={PATH.spl4} element={<SPL4 />} />
+        <Route path={PATH.spl5} element={<SPL5 />} />
+        <Route path={PATH.statistikaSuperliga} element={<Superliga />} />
+        <Route path={PATH.statistikaMalus} element={<Malus />} />
+        <Route path={PATH.statistikaCairo} element={<Cairo />} />
+        <Route path={PATH.statistikaFlame} element={<Flame />} />
+        <Route path={PATH.statistikaArabesk} element={<Arabesk />} />
+        <Route path={PATH.statistikaSpl4} element={<StatistikaSPL4 />} />
+        <Route path={PATH.statistikaSpl5} element={<StatistikaSPL5 />} />
+        <Route path={PATH.statistikaSever} element={<SPLSever />} />
+        <Route path={PATH.statistikaIztok} element={<SPLIztok />} />
+        <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />} />
+        <Route path={PATH.shemaTurnir} element={<ShemaKupa />} />
+        <Route path={PATH.statistikaKupa} element={<Kupa />} />
+        <Route path={PATH.admin} element={<Admin />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
