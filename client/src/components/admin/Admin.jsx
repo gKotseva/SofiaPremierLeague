@@ -27,16 +27,46 @@ export function Admin () {
     const getCellContent = (item, header) => {
         switch (header) {
             case 'Снимка':
-                return <img src={item.image || item.logo_image} alt="image" /> || '';
+                return <img src={item.image || item.logo_image} alt="image" />;
             case 'Номер':
                 return item.player_number || '';
             case 'Име':
                 return item.name || item.team_name || item.manager_name || '';
             case 'Отборна снимка':
-                return <img src={item.team_image} alt="team image" /> || '';
+                return <img src={item.team_image} alt="team image" />;
             default:
                 return item[header.toLowerCase()] || '';
         }
+    };
+
+    const renderPagination = () => {
+        const pageNumbers = [];
+        const totalPages = Math.ceil(data.length / itemsPerPage);
+
+        if (totalPages <= 5) {
+            for (let i = 1; i <= totalPages; i++) {
+                pageNumbers.push(i);
+            }
+        } else {
+            if (currentPage <= 3) {
+                pageNumbers.push(1, 2, 3, 4, '...', totalPages);
+            } else if (currentPage > totalPages - 3) {
+                pageNumbers.push(1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+            } else {
+                pageNumbers.push(1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages);
+            }
+        }
+
+        return pageNumbers.map((number, index) => (
+            <button
+                key={index}
+                onClick={() => paginate(number)}
+                disabled={number === '...'}
+                className={number === currentPage ? 'active' : ''}
+            >
+                {number}
+            </button>
+        ));
     };
 
     return (
@@ -79,9 +109,7 @@ export function Admin () {
                     </tbody>
                 </table>
                 <div className='pagination'>
-                    {Array.from({ length: Math.ceil(data.length / itemsPerPage) }, (_, i) => (
-                        <button key={i} onClick={() => paginate(i + 1)}>{i + 1}</button>
-                    ))}
+                    {renderPagination()}
                 </div>
             </div>
         </div>
