@@ -34,6 +34,8 @@ export function Admin () {
                 return item.name || item.team_name || item.manager_name || '';
             case 'Отборна снимка':
                 return <img src={item.team_image} alt="team image" />;
+            case 'Позиция':
+                return item.position_name
             default:
                 return item[header.toLowerCase()] || '';
         }
@@ -73,7 +75,7 @@ export function Admin () {
         <div className='main'>
             <div className="side-header">
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getPlayers, ['Снимка', 'Номер', 'Име']) }}><img src="soccer-player.png" alt="players" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getPlayers, ['Снимка', 'Номер', 'Име', 'Позиция']) }}><img src="soccer-player.png" alt="players" /></a>
                     <h1>играчи</h1>
                 </div>
                 <div className='overlay'>

@@ -4,7 +4,12 @@ const db = require('../db');
 
 router.get('/players', async (req, res) => {
     try {
-        const sqlQuery = 'SELECT * from players';
+        const sqlQuery = `
+            select p.name, p.image, p.player_number, pp.position_name from players p
+            inner join player_positions ps on p.player_id=ps.player_id
+            inner join positions pp on ps.position_id=pp.position_id
+            order by p.player_id;
+        `;
         const results = await db.executeQuery(sqlQuery);
         res.json(results);
     } catch (error) {
