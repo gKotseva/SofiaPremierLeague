@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import './Admin.modules.css'
 import { getPlayers, getMatches, getTeams, getStaff } from '../../services/adminService';
+import ImageModal from '../modals/ImageModal';
+import { Link } from 'react-router-dom'
+
+
 
 export function Admin () {
     const [data, setData] = useState([]);
     const [headers, setHeaders] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [dataType, setDataType] = useState('');
+    const [isModalOpen, setModalOpen] = useState(false)
+    const [modalPath, setModalPath] = useState('')
 
-    const fetchData = async (endpoint, headers) => {
+    const fetchData = async (endpoint, headers, type) => {
         try {
             const response = await endpoint();
             setData(response);
             setHeaders(headers);
+            setDataType(type)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -33,7 +41,7 @@ export function Admin () {
             case 'Име':
                 return item.name || item.team_name || item.manager_name || '';
             case 'Отборна снимка':
-                return <img src={item.team_image} alt="team image" />;
+                return <Link onClick={() => openModal(item.team_image)}><img src={item.team_image} alt="team image" /></Link>;
             case 'Позиция':
                 return item.position_name;
             case 'Отбори':
@@ -42,8 +50,6 @@ export function Admin () {
                 return item[header.toLowerCase()] || '';
         }
     };
-
-    console.log(data)
 
     const renderPagination = () => {
         const pageNumbers = [];
@@ -75,28 +81,39 @@ export function Admin () {
         ));
     };
 
+    const openModal = (path) => {
+        setModalPath(path)
+        setModalOpen(true)
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
+      };
+
+
     return (
+        <>
         <div className='main'>
             <div className="side-header">
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getPlayers, ['Снимка', 'Номер', 'Име', 'Позиция', 'Отбори']) }}><img src="soccer-player.png" alt="players" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getPlayers, ['Снимка', 'Номер', 'Име', 'Позиция', 'Отбори'], 'players') }}><img src="soccer-player.png" alt="players" /></a>
                     <h1>играчи</h1>
                 </div>
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getTeams, ['Снимка', 'Име', 'Отборна снимка']) }}><img src="football-club.png" alt="teams" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getTeams, ['Снимка', 'Име', 'Отборна снимка'], 'teams') }}><img src="football-club.png" alt="teams" /></a>
                     <h1>отбори</h1>
                 </div>
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getMatches, ['Date', 'Location']) }}><img src="penalty-kick.png" alt="matches" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getMatches, ['Date', 'Location'], 'matches') }}><img src="penalty-kick.png" alt="matches" /></a>
                     <h1>мачове</h1>
                 </div>
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getStaff, ['Снимка', 'Име']) }}><img src="team.png" alt="staff" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getStaff, ['Снимка', 'Име'], 'staff') }}><img src="team.png" alt="staff" /></a>
                     <h1>персонал</h1>
                 </div>
             </div>
             <div className='main-table'>
-                <table>
+                <table className={`table-${dataType}`}>
                     <thead>
                         <tr>
                             {headers.map((header, index) => (
@@ -119,5 +136,8 @@ export function Admin () {
                 </div>
             </div>
         </div>
+        <ImageModal isOpen={isModalOpen} onClose={closeModal} path={modalPath}/>
+        </>
     );
+    
 }

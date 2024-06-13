@@ -100,4 +100,37 @@
     color: white;
 }
 
+.table-players th:nth-child(1) {
+    width: 30px;
+}
+
+.table-players th:nth-child(2) {
+    width: 10px;
+}
+
+.table-players th:nth-child(3) {
+    width: 250px;
+}
+
+.table-players th:nth-child(4) {
+    width: 50px;
+}
+
+.table-players th:nth-child(5) {
+    width: 500px;
+}
+
+.table-teams th:nth-child(1) {
+    width: 30px;
+}
+
+.table-teams th:nth-child(2) {
+    width: 300px;
+}
+
+.table-teams td:nth-child(3) img {
+    width: 100px;
+    text-align: center;
+}
+
 
