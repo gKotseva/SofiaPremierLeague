@@ -33,7 +33,7 @@ router.get('/teams', async (req, res) => {
     }
 });
 
-router.get('/staff', async (req, res) => {
+router.get('/managers', async (req, res) => {
     try {
         const sqlQuery = 'SELECT * from managers';
         const results = await db.executeQuery(sqlQuery);
@@ -43,5 +43,17 @@ router.get('/staff', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+router.get('/staff', async (req, res) => {
+    try {
+        const sqlQuery = 'SELECT * from referees';
+        const results = await db.executeQuery(sqlQuery);
+        res.json(results);
+    } catch (error) {
+        console.error('Error executing query:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 module.exports = router
