@@ -15,6 +15,11 @@ export const getTeams= async () => {
     return result;
 }
 
+export const getManagers= async () => {
+    const result = await request.get('/api/admin/managers')
+    return result;
+}
+
 export const getStaff= async () => {
     const result = await request.get('/api/admin/staff')
     return result;
