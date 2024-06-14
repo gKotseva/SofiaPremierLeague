@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Admin.modules.css'
-import { getPlayers, getMatches, getTeams, getStaff } from '../../services/adminService';
+import { getPlayers, getMatches, getTeams, getManagers, getStaff } from '../../services/adminService';
 import ImageModal from '../modals/ImageModal';
 import { Link } from 'react-router-dom'
 
@@ -108,7 +108,11 @@ export function Admin () {
                     <h1>мачове</h1>
                 </div>
                 <div className='overlay'>
-                    <a onClick={(e) => { e.preventDefault(); fetchData(getStaff, ['Снимка', 'Име'], 'staff') }}><img src="team.png" alt="staff" /></a>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getManagers, ['Снимка', 'Име'], 'managers') }}><img src="team.png" alt="staff" /></a>
+                    <h1>мениджъри</h1>
+                </div>
+                <div className='overlay'>
+                    <a onClick={(e) => { e.preventDefault(); fetchData(getStaff, ['Име'], 'staff') }}><img src="referee.png" alt="staff" /></a>
                     <h1>персонал</h1>
                 </div>
             </div>
