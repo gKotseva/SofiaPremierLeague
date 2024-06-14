@@ -35,7 +35,7 @@ export function Admin () {
     const getCellContent = (item, header) => {
         switch (header) {
             case 'Снимка':
-                return <img src={item.image || item.logo_image} alt="image" />;
+                return <Link onClick={() => openModal(item.logo_image || item.image)}><img src={item.image || item.logo_image} alt="image" /></Link>;
             case 'Номер':
                 return item.player_number || '';
             case 'Име':

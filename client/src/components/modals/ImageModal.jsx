@@ -7,11 +7,9 @@ export default function ImageModal({isOpen, onClose, path}) {
         return null;
     }
 
-    console.log(path)
-    console.log(isOpen)
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content">
         <span className="close-button" onClick={onClose}>
         &#10005;
