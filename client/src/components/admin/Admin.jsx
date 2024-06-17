@@ -35,13 +35,13 @@ export function Admin () {
     const getCellContent = (item, header) => {
         switch (header) {
             case 'Снимка':
-                return <Link onClick={() => openModal(item.logo_image || item.image)}><img src={item.image || item.logo_image} alt="image" /></Link>;
+                return <Link onClick={() => openModal(item.logo_image || item.image || 'image.png')}><img src={item.image || item.logo_image || 'image.png'} alt="image" /></Link>;
             case 'Номер':
                 return item.player_number || '';
             case 'Име':
                 return item.name || item.team_name || item.manager_name || '';
             case 'Отборна снимка':
-                return <Link onClick={() => openModal(item.team_image)}><img src={item.team_image} alt="team image" /></Link>;
+                return <Link onClick={() => openModal(item.team_image || 'image.png')}><img src={item.team_image || 'image.png'} alt="team image" /></Link>;
             case 'Позиция':
                 return item.position_name;
             case 'Отбори':
