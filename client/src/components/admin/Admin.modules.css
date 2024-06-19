@@ -1,12 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1em;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Side header styles */
 .side-header {
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    gap: 1.5em;
     background-color: lightgray;
     align-items: center;
     justify-content: center;
     width: 8em;
     padding: 1em;
+    height: 100vh;
 }
 
 .side-header .overlay {
@@ -40,21 +56,16 @@
     opacity: 1;
 }
 
-.main {
-    display: flex;
-}
-
+/* Main table styles */
 .main-table {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-top: 10px;
     font-size: 15px;
+    flex: 1;
 }
 
 .main-table table {
     border-spacing: 0;
+    width: 100%; 
 }
 
 .main-table thead {
@@ -142,4 +153,3 @@
 .table-managers td:nth-child(2) {
     width: 200px;
 }
-
