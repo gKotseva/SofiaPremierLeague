@@ -57,8 +57,8 @@ const AdminTable = () => {
         switch (header) {
             case 'Снимка':
                 return (
-                    <button onClick={() => openModal(item.logo_image || item.image || 'image.png')}>
-                        <img src={item.image || item.logo_image || 'image.png'} alt="image" />
+                    <button onClick={() => openModal(item.logo_image || item.image || '/image.png')}>
+                        <img src={item.image || item.logo_image || '/image.png'} alt="image" />
                     </button>
                 );
             case 'Номер':
@@ -67,8 +67,8 @@ const AdminTable = () => {
                 return item.name || item.team_name || item.manager_name || '';
             case 'Отборна снимка':
                 return (
-                    <button onClick={() => openModal(item.team_image || 'image.png')}>
-                        <img src={item.team_image || 'image.png'} alt="team image" />
+                    <button onClick={() => openModal(item.team_image || '/image.png')}>
+                        <img src={item.team_image || '/image.png'} alt="team image" />
                     </button>
                 );
             case 'Позиция':

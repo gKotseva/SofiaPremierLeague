@@ -15,6 +15,7 @@ export function AdminSide() {
 
     return (
         <>
+        <div className="side-header">
             <div className="overlay">
                 <Link to="/admin"><img src="./house.png" alt="home"></img></Link>
                 <h1>начало</h1>
@@ -39,6 +40,7 @@ export function AdminSide() {
                 <Link onClick={() => handleFetchAndNavigate(getStaff, ['Име'], 'staff', '/admin/staff')}><img src="./referee.png" alt="staff" /></Link>
                 <h1>персонал</h1>
             </div>
+        </div>
         </>
     );
 }
