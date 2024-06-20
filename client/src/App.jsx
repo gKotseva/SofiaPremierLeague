@@ -78,6 +78,12 @@ function App() {
           <Route path={PATH.shemaTurnir} element={<ShemaKupa />} />
           <Route path={PATH.statistikaKupa} element={<Kupa />} />
 
+          <Route path="/admin" element={
+            <AdminProvider>
+              <Admin />
+            </AdminProvider>
+          } />
+          
           <Route path="/admin/*" element={
             <AdminProvider>
               <Admin />
