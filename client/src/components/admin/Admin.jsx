@@ -2,16 +2,18 @@ import React from 'react';
 import { AdminSide } from './AdminSide';
 import './Admin.modules.css';
 import AdminTable from './AdminTable';
+import { Outlet, useLocation } from 'react-router-dom';
+import { AdminHome } from './AdminHome';
+
 
 export function Admin() {
+    const location = useLocation();
+    const isMainAdminPath = location.pathname === '/admin';
+
     return (
         <div className="container">
-            <div className="side-header">
                 <AdminSide />
-            </div>
-            <div className="main-table">
-                <AdminTable />
-            </div>
+                {isMainAdminPath ? <AdminHome /> : <AdminTable />}
         </div>  
     );
 }
