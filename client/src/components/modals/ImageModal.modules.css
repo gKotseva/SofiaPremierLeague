@@ -19,7 +19,6 @@
     border-radius: 8px;
     margin: 0 300px;
     position: relative;
-    max-height: 90vh;
     overflow-y: auto;
 }
 
@@ -35,5 +34,4 @@
 .modalImage {
     width: 30em;
     height: auto;
-    max-width: 100%;
 }
