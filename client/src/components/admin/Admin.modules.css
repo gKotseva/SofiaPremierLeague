@@ -61,11 +61,16 @@
     margin-top: 10px;
     font-size: 15px;
     flex: 1;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .main-table table {
     border-spacing: 0;
     width: 100%; 
+    margin-bottom: 1em;
 }
 
 .main-table thead {
@@ -79,15 +84,17 @@
 .main-table td, .main-table th {
     border: 1px solid #00563B;
     text-align: center;
+    padding: 0.2em;
 }
 
-.main-table img {
+.main-table table img {
     width: 40px;
-    height: auto;
+    height: 50px;
 }
+
+/* Pagination */
 
 .pagination {
-    margin-top: 1em;
     display: flex;
     justify-content: center;
 }
@@ -112,6 +119,8 @@
     color: white;
 }
 
+/* Table players */
+
 .table-players td:nth-child(1) {
     width: 10px;
 }
@@ -132,6 +141,8 @@
     width: 500px;
 }
 
+/* Table teams */
+
 .table-teams th:nth-child(1) {
     width: 30px;
 }
@@ -145,11 +156,113 @@
     text-align: center;
 }
 
+/* Table staff */
+
 .table-staff td {
     width: 20em;
     padding: 1em;
 }
 
+/* Table managers */
+
 .table-managers td:nth-child(2) {
     width: 200px;
 }
+
+
+/* Input form */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.input-form {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 2em 0.5em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-form h3 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.input-form label {
+    display: block;
+    margin-bottom: 1em;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: #555;
+}
+
+.input-form label input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+}
+
+.input-form .file-input-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.input-form .file-input {
+    display: none;
+}
+
+.input-form .custom-file-label {
+    display: block;
+    padding: 0.5em 1em;
+    background-color: #00563B;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+}
+
+.input-form .file-name {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: black;
+    margin-top: -15px;
+}
+
+.input-form button {
+    display: block;
+    width: 100%;
+    padding: 0.7em;
+    margin-top: 1em;
+    background-color: #00563B;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-form button:hover {
+    background-color: #1aae7f;
+}
+
