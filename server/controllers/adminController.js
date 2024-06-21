@@ -55,5 +55,10 @@ router.get('/staff', async (req, res) => {
     }
 });
 
+router.post('/staff', async (req, res) => {
+    const {name} = req.body
+    console.log(name)
+})
+
 
 module.exports = router
