@@ -13,7 +13,9 @@ export function Admin() {
     return (
         <div className="container">
                 <AdminSide />
-                {isMainAdminPath ? <AdminHome /> : <AdminTable />}
+                <div className='main-content'>
+                    {isMainAdminPath ? <AdminHome /> : <AdminTable />}
+                </div>
         </div>  
     );
 }

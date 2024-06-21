@@ -15,6 +15,7 @@
 /* Side header styles */
 .side-header {
     display: flex;
+    position: fixed;
     flex-direction: column;
     gap: 1.5em;
     background-color: lightgray;
@@ -54,6 +55,12 @@
 
 .side-header .overlay:hover h1 {
     opacity: 1;
+}
+
+.main-content {
+    margin-left: 8em; 
+    padding: 1em;
+    flex: 1;
 }
 
 /* Main table styles */
