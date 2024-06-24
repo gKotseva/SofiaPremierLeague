@@ -31,7 +31,7 @@ export const getStaff = async () => {
 
 export const postStaff = async (formData) => {
     const result = await request.post('/api/admin/staff', {
-        name: formData.name, 
+        name: formData, 
     })
 
     return result;
