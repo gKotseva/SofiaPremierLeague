@@ -56,8 +56,14 @@ router.get('/staff', async (req, res) => {
 });
 
 router.post('/staff', async (req, res) => {
-    const {name} = req.body
-    console.log(name)
+    try {
+        const {name} = req.body
+        const sqlQuery = `INSERT INTO referees (name) VALUES ('${name}')`;
+        const results = await db.executeQuery(sqlQuery);
+        res.json(`Successfully added ${name} to the database!`)
+    } catch (error){
+        console.error(error)
+    }
 })
 
 
