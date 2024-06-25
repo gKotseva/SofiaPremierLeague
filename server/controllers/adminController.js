@@ -2,6 +2,7 @@ const router = require('express').Router()
 const db = require('../db');
 
 
+
 router.get('/players', async (req, res) => {
     try {
         const sqlQuery = `
@@ -59,8 +60,20 @@ router.post('/staff', async (req, res) => {
     try {
         const {name} = req.body
         const sqlQuery = `INSERT INTO referees (name) VALUES ('${name}')`;
-        const results = await db.executeQuery(sqlQuery);
+        await db.executeQuery(sqlQuery);
         res.json(`Successfully added ${name} to the database!`)
+    } catch (error){
+        console.error(error)
+    }
+})
+
+router.post('/managers', async (req, res) => {
+    try {
+        console.log(req.body); 
+
+        // const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', '${'/uploads/players/' + file}')`;
+        // const results = await db.executeQuery(sqlQuery);
+        // res.json(`Successfully added ${name} to the database!`)
     } catch (error){
         console.error(error)
     }
