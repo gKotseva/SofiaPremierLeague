@@ -1,16 +1,17 @@
 const buildOptions = (data) => {
-    const options = {}
+    const options = {};
 
-    if(data) {
-        options.body = JSON.stringify(data)
+    if (data instanceof FormData) {
+        options.body = data;
+    } else if (typeof data === 'object' && data !== null) {
+        options.body = JSON.stringify(data);
         options.headers = {
-            'content-type': 'application/json'
-        }
+            'Content-Type': 'application/json',
+        };
     }
 
-    return options
-    
-}
+    return options;
+};
 
 const request = async(method, url, data) => {
     const response = await fetch(url, {

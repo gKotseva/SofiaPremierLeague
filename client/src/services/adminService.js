@@ -36,7 +36,6 @@ export const postStaff = async (formData) => {
 };
 
 export const postManagers = async (formData) => {
-    console.log(formData)
     const result = await request.post('/api/admin/managers', formData)
 
     return result;
