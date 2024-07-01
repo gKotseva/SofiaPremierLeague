@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const db = require('../db');
-const { uploadManagers } = require('../uploadPaths');
+const configureMulter = require('../multerConfig');
+
+const upload = configureMulter();
+
 
 router.get('/players', async (req, res) => {
     try {
@@ -71,19 +74,34 @@ router.post('/staff', async (req, res) => {
     }
 });
 
-router.post('/managers', uploadManagers.single('file'), async (req, res) => {
+// router.post('/managers', upload.fields([{name: 'file', maxCount: 1}]), async (req, res) => {
+//     try {
+
+//         const { name } = req.body;
+//         const {originalname} = req.file
+
+//         const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', '${'/uploads/players/' + originalname}')`;
+//         const results = await db.executeQuery(sqlQuery);
+//         res.json(`Successfully added ${name} to the database!`)
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
+
+router.post('/teams', upload.fields([{ name: 'teamPhoto', maxCount: 1 }, { name: 'teamLogo', maxCount: 1 }]), async (req, res) => {
     try {
-
-        const { name } = req.body;
-        const {originalname} = req.file
-
-        const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', '${'/uploads/players/' + originalname}')`;
-        const results = await db.executeQuery(sqlQuery);
-        res.json(`Successfully added ${name} to the database!`)
+      const { teamName } = req.body;
+      const teamPhoto = req.files['teamPhoto'] ? req.files['teamPhoto'][0].path : null;
+      const teamLogo = req.files['teamLogo'] ? req.files['teamLogo'][0].path : null;
+  
+      const sqlQuery = `INSERT INTO teams (team_name, team_image, logo_image) VALUES ('${teamName}', '${teamPhoto}', '${teamLogo}')`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${teamName} to the database!`);
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
+      console.error(error);
+      res.status(500).send('Internal Server Error');
     }
-});
+  });
 
 module.exports = router;

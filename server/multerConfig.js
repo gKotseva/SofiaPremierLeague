@@ -1,10 +1,16 @@
 const multer = require('multer');
 
-const configureMulter = (uploadPath) => {
+const configureMulter = () => {
     return multer({
         storage: multer.diskStorage({
             destination: function (req, file, cb) {
-                cb(null, uploadPath); 
+                if (file.fieldname === 'teamPhoto'){
+                    cb(null, 'uploads/teams'); 
+                } else if (file.fieldname === 'teamLogo'){
+                    cb(null, 'uploads/logos'); 
+                } else {
+                    cb(null, 'uploads/players'); 
+                }
             },
             filename: function (req, file, cb) {
                 cb(null, file.originalname);
