@@ -40,3 +40,9 @@ export const postManagers = async (formData) => {
 
     return result;
 };
+
+export const postTeams = async (formData) => {
+    const result = await request.post('/api/admin/teams', formData)
+
+    return result;
+};

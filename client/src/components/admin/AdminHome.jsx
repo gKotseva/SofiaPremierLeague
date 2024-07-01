@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Admin.modules.css';
-import { postManagers, postStaff } from '../../services/adminService';
+import { postManagers, postStaff, postTeams } from '../../services/adminService';
 
 export function AdminHome() {
     const [playersFormValues, setPlayersFormValues] = useState({})
@@ -10,7 +10,28 @@ export function AdminHome() {
     const [fileName, setFileName] = useState('Няма избран файл');
 
     // const handlePlayerChange = (e) => {}
-    // const handleTeamChange = (e) => {}
+
+    const handleTeamChange = (e) => {
+        setTeamsFormValues({
+            ...teamsFormValues,
+            teamName: e.target.value,
+        });
+    };
+
+    const handleTeamsFileChange = (e, setTeamsFormValues) => {
+        const { name, files } = e.target;
+        setTeamsFormValues(prevState => ({
+            ...prevState,
+            [name]: files[0],
+        }));
+
+        const formData = new FormData();
+        formData.append('teamName', teamsFormValues.teamName);
+        formData.append('teamPhoto', teamsFormValues.teamPhoto);
+        formData.append('teamLogo', teamsFormValues.teamLogo);
+
+    };
+
     const handleManagersChange = (e) => {
         const { name, value } = e.target;
         setManagersFormValues(previousValues => ({
@@ -19,17 +40,15 @@ export function AdminHome() {
         }));
     }
 
-    const handleManagerFileChange = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setFileName(file.name || 'Няма избран файл');
-            const formData = new FormData();
-            formData.append('name', managersFormValues.name);
-            formData.append('file', file);
-            setManagersFormValues(formData);
-        } else {
-            setFileName('Няма избран файл');
-        }
+    const handleManagerFileChange = (e) => {
+        const { name, files } = e.target;
+        setManagersFormValues(prevState => ({
+            ...prevState,
+            [name]: files[0],
+        }));
+
+        const formData = new FormData();
+        formData.append('file', managersFormValues.file);
     };
 
     const handleStaffChange = (e) => {
@@ -46,11 +65,9 @@ export function AdminHome() {
             //         formData.append(key, playerFormData[key]);
             //     });
             //     break;
-            // case 'teams':
-            //     Object.keys(teamFormData).forEach((key) => {
-            //         formData.append(key, teamFormData[key]);
-            //     });
-            //     break;
+            case 'teams':
+                await postTeams(teamsFormValues)
+                break;
             case 'managers':
                 await postManagers(managersFormValues)
                 break;
@@ -82,7 +99,7 @@ export function AdminHome() {
                         <span className="file-name"></span>
                     </div>
                     <button type="submit">Добави</button>
-                </form>
+                </form> */}
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'teams')}>
                     <h3>Добави отбор</h3>
                     <label>Име<input type="text" name="teamName" onChange={handleTeamChange} /></label>
@@ -93,7 +110,7 @@ export function AdminHome() {
                             id="team-photo-input"
                             className="file-input"
                             name="teamPhoto"
-                            onChange={(e) => handleFileChange(e, setTeamFormData)}
+                            onChange={(e) => handleTeamsFileChange(e, setTeamsFormValues)}
                         />
                         <span className="file-name"></span>
                     </div>
@@ -104,12 +121,12 @@ export function AdminHome() {
                             id="team-logo-input"
                             className="file-input"
                             name="teamLogo"
-                            onChange={(e) => handleFileChange(e, setTeamFormData)}
+                            onChange={(e) => handleTeamsFileChange(e, setTeamsFormValues)}
                         />
                         <span className="file-name"></span>
                     </div>
                     <button type="submit">Добави</button>
-                </form> */}
+                </form>
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'managers')}>
                     <h3>Добави мениджър</h3>
                     <label>Име<input type="text" name="name" value={managersFormValues.name} onChange={handleManagersChange} /></label>
