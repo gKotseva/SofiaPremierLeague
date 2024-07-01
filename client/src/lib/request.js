@@ -1,13 +1,25 @@
 const buildOptions = (data) => {
     const options = {};
 
+    // Check if the data is FormData
     if (data instanceof FormData) {
         options.body = data;
     } else if (typeof data === 'object' && data !== null) {
-        options.body = JSON.stringify(data);
-        options.headers = {
-            'Content-Type': 'application/json',
-        };
+        const containsFile = Object.values(data).some(value => value instanceof File);
+        if (containsFile) {
+            const formData = new FormData();
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    formData.append(key, data[key]);
+                }
+            }
+            options.body = formData;
+        } else {
+            options.body = JSON.stringify(data);
+            options.headers = {
+                'Content-Type': 'application/json',
+            };
+        }
     }
 
     return options;
