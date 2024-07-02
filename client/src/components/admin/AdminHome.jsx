@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Admin.modules.css';
-import { postManagers, postStaff, postTeams } from '../../services/adminService';
+import { postManagers, postPlayers, postStaff, postTeams } from '../../services/adminService';
 
 export function AdminHome() {
     const [playersFormValues, setPlayersFormValues] = useState({})
@@ -9,7 +9,28 @@ export function AdminHome() {
     const [staffFormValues, setStaffFormValues] = useState({})
     const [fileName, setFileName] = useState('Няма избран файл');
 
-    // const handlePlayerChange = (e) => {}
+    const handlePlayerChange = (e) => {
+        const { name, value } = e.target;
+        setPlayersFormValues({
+            ...playersFormValues,
+            [name]: value
+        })
+    }
+
+    const handlePlayersFileChange = (e) => {
+        const { name, files } = e.target;
+        console.log(name)
+        console.log(files)
+        setPlayersFormValues(prevState => ({
+            ...prevState,
+            [name]: files[0],
+        }));
+
+        const formData = new FormData();
+        formData.append('name', playersFormValues.name);
+        formData.append('number', playersFormValues.number);
+        formData.append('photo', playersFormValues.photo);
+    }
 
     const handleTeamChange = (e) => {
         setTeamsFormValues({
@@ -18,7 +39,7 @@ export function AdminHome() {
         });
     };
 
-    const handleTeamsFileChange = (e, setTeamsFormValues) => {
+    const handleTeamsFileChange = (e) => {
         const { name, files } = e.target;
         setTeamsFormValues(prevState => ({
             ...prevState,
@@ -60,11 +81,10 @@ export function AdminHome() {
         e.preventDefault();
 
         switch (endpoint) {
-            // case 'players':
-            //     Object.keys(playerFormData).forEach((key) => {
-            //         formData.append(key, playerFormData[key]);
-            //     });
-            //     break;
+            case 'players':
+                console.log(playersFormValues)
+                postPlayers(playersFormValues)
+                break;
             case 'teams':
                 await postTeams(teamsFormValues)
                 break;
@@ -83,7 +103,7 @@ export function AdminHome() {
     return (
         <>
             <div className="form-container">
-                {/* <form className="input-form" onSubmit={(e) => onSubmit(e, 'players')}>
+                <form className="input-form" onSubmit={(e) => onSubmit(e, 'players')}>
                     <h3>Добави играч</h3>
                     <label>Име<input type="text" name="name" onChange={handlePlayerChange} /></label>
                     <label>Номер<input type="number" name="number" onChange={handlePlayerChange} /></label>
@@ -94,12 +114,12 @@ export function AdminHome() {
                             id="file-input"
                             className="file-input"
                             name="photo"
-                            onChange={(e) => handleFileChange(e, setPlayerFormData)}
+                            onChange={(e) => handlePlayersFileChange(e, setPlayersFormValues)}
                         />
                         <span className="file-name"></span>
                     </div>
                     <button type="submit">Добави</button>
-                </form> */}
+                </form>
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'teams')}>
                     <h3>Добави отбор</h3>
                     <label>Име<input type="text" name="teamName" onChange={handleTeamChange} /></label>
