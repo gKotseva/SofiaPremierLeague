@@ -77,18 +77,15 @@ router.post('/staff', async (req, res) => {
 router.post('/managers', upload.fields([{ name: 'file', maxCount: 1 }]), async (req, res) => {
     try {
       const { name } = req.body;
-      const file = req.files['file'] ? req.files['file'][0] : null;
-      
-      if (file) {
-        const { originalname } = file;
-        const imagePath = `/uploads/players/${originalname}`;
-  
-        const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', '${imagePath}')`;
-        await db.executeQuery(sqlQuery);
-        res.json(`Successfully added ${name} to the database!`);
-      } else {
-        res.status(400).json({ error: 'File not uploaded' });
+      let file = null
+
+      if(req.files && req.files['file']){
+        file = req.files['file'][0].path
       }
+
+      const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', ${file ? `'${file}'` : 'NULL'})`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${name} to the database!`);
     } catch (error) {
       console.error(error);
       res.status(500).send('Internal Server Error');
@@ -97,33 +94,43 @@ router.post('/managers', upload.fields([{ name: 'file', maxCount: 1 }]), async (
 
 router.post('/teams', upload.fields([{ name: 'teamPhoto', maxCount: 1 }, { name: 'teamLogo', maxCount: 1 }]), async (req, res) => {
     try {
-      const { teamName } = req.body;
-      const teamPhoto = req.files['teamPhoto'] ? req.files['teamPhoto'][0].path : null;
-      const teamLogo = req.files['teamLogo'] ? req.files['teamLogo'][0].path : null;
+      const {teamName} = req.body
+
+      let teamPhoto = null
+      let teamLogo = null
+
+      if (req.files && req.files['teamPhoto']) {
+        teamPhoto = req.files['teamPhoto'][0].path
+      }
   
-      const sqlQuery = `INSERT INTO teams (team_name, team_image, logo_image) VALUES ('${teamName}', '${teamPhoto}', '${teamLogo}')`;
+      if (req.files && req.files['teamLogo']) {
+        teamLogo = req.files['teamLogo'][0].path
+      }
+      const sqlQuery = `INSERT INTO teams (team_name, team_image, logo_image) VALUES ('${teamName}', ${teamPhoto ? `'${teamPhoto}'` : 'NULL'}, ${teamLogo ? `'${teamLogo}'` : 'NULL'})`;
       await db.executeQuery(sqlQuery);
       res.json(`Successfully added ${teamName} to the database!`);
+
     } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
+        console.error(error);
+        res.status(500).send('Internal Server Error');
     }
 });
 
 router.post('/players', upload.fields([{ name: 'photo', maxCount: 1 }]), async (req, res) => {
   try {
     const { name, number } = req.body;
-    const file = req.files['photo'] ? req.files['photo'][0] : null;
     
-    if (file) {
+    if (req.files && req.files['photo']) {
+      const file = req.files['photo'][0];
       const { originalname } = file;
       const imagePath = `/uploads/players/${originalname}`;
-
       const sqlQuery = `INSERT INTO players (name, image, player_number) VALUES ('${name}', '${imagePath}', '${number}')`;
       await db.executeQuery(sqlQuery);
       res.json(`Successfully added ${name} to the database!`);
     } else {
-      res.status(400).json({ error: 'File not uploaded' });
+      const sqlQuery = `INSERT INTO players (name, image, player_number) VALUES ('${name}', NULL, '${number}')`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${name} to the database!`);
     }
   } catch (error) {
     console.error(error);
