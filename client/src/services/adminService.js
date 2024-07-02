@@ -46,3 +46,11 @@ export const postTeams = async (formData) => {
 
     return result;
 };
+
+export const postPlayers = async (formData) => {
+    const result = await request.post('/api/admin/players', formData)
+    console.log(formData)
+    console.log(result)
+
+    return result;
+};
