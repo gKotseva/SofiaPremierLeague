@@ -93,7 +93,7 @@ router.post('/managers', upload.fields([{ name: 'file', maxCount: 1 }]), async (
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
-  });
+});
 
 router.post('/teams', upload.fields([{ name: 'teamPhoto', maxCount: 1 }, { name: 'teamLogo', maxCount: 1 }]), async (req, res) => {
     try {
@@ -108,6 +108,27 @@ router.post('/teams', upload.fields([{ name: 'teamPhoto', maxCount: 1 }, { name:
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
-  });
+});
+
+router.post('/players', upload.fields([{ name: 'photo', maxCount: 1 }]), async (req, res) => {
+  try {
+    const { name, number } = req.body;
+    const file = req.files['photo'] ? req.files['photo'][0] : null;
+    
+    if (file) {
+      const { originalname } = file;
+      const imagePath = `/uploads/players/${originalname}`;
+
+      const sqlQuery = `INSERT INTO players (name, image, player_number) VALUES ('${name}', '${imagePath}', '${number}')`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${name} to the database!`);
+    } else {
+      res.status(400).json({ error: 'File not uploaded' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 module.exports = router;
