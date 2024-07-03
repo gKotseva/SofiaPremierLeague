@@ -4,6 +4,8 @@ const configureMulter = require('../multerConfig');
 
 const upload = configureMulter();
 
+// GET Requests
+
 
 router.get('/players', async (req, res) => {
     try {
@@ -60,7 +62,7 @@ router.get('/staff', async (req, res) => {
     }
 });
 
-// Post Requests
+// POST Requests
 
 router.post('/staff', async (req, res) => {
     try {
