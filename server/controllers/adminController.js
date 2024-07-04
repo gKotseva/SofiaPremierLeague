@@ -62,6 +62,24 @@ router.get('/staff', async (req, res) => {
     }
 });
 
+router.get('/stats', async (req, res) => {
+  const playersCountQuery = 'SELECT COUNT(*) as count FROM players';
+  const teamsCountQuery = 'SELECT COUNT(*) as count FROM teams';
+
+  try {
+    const [playersCount, teamsCount] = await Promise.all([
+      db.executeQuery(playersCountQuery),
+      db.executeQuery(teamsCountQuery),
+    ]);
+
+    res.send({playersCount: playersCount[0].count, teamsCount: teamsCount[0].count})
+
+  } catch (error) {
+    console.error('Error Gabi')
+    res.status(500).json({ error: 'Internal server error' });
+  }
+})
+
 // POST Requests
 
 router.post('/staff', async (req, res) => {
