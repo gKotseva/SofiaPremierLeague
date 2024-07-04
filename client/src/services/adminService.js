@@ -27,6 +27,11 @@ export const getStaff = async () => {
     return result;
 }
 
+export const getAllStats = async () => {
+    const result = await request.get('/api/admin/stats')
+    return result;
+}
+
 // Post requests
 
 export const postStaff = async (formData) => {
