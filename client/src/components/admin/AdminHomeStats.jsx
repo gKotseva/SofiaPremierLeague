@@ -7,6 +7,7 @@ export function AdminStats () {
         teamsCount: 0,
         playersCount: 0,
         matchesCount: 0,
+        leaguesCount: 0,
     });
 
     useEffect(() => {
@@ -16,7 +17,8 @@ export function AdminStats () {
     
                 setStats({
                     teamsCount: response.teamsCount,
-                    playersCount: response.playersCount
+                    playersCount: response.playersCount,
+                    leaguesCount: response.leaguesCount
                 })    
             } catch (error) {
                 console.log(error)
@@ -56,6 +58,15 @@ export function AdminStats () {
                 <div className="container-stats-stats">
                     <strong><p>9999</p></strong>
                     <p>мачове</p>
+                </div>
+                </div>
+                <div className="container-stats">
+                <div className="container-stats-image">
+                    <img src="leagues.png"></img>
+                </div>
+                <div className="container-stats-stats">
+                    <strong><p>{stats.leaguesCount}</p></strong>
+                    <p>лиги</p>
                 </div>
                 </div>
             </div>
