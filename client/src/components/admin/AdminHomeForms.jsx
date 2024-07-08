@@ -3,11 +3,10 @@ import './Admin.modules.css';
 import { postManagers, postPlayers, postStaff, postTeams } from '../../services/adminService';
 
 export function AdminForms() {
-    const [playersFormValues, setPlayersFormValues] = useState({})
-    const [teamsFormValues, setTeamsFormValues] = useState({})
-    const [managersFormValues, setManagersFormValues] = useState({})
+    const [playersFormValues, setPlayersFormValues] = useState({ fileName: 'Няма избран файл' })
+    const [teamsFormValues, setTeamsFormValues] = useState({ teamPhotoFileName: 'Няма избран файл', teamLogoFileName: 'Няма избран файл' })
+    const [managersFormValues, setManagersFormValues] = useState({ fileName: 'Няма избран файл' })
     const [staffFormValues, setStaffFormValues] = useState({})
-    const [fileName, setFileName] = useState('Няма избран файл');
 
     const handlePlayerChange = (e) => {
         const { name, value } = e.target;
@@ -19,11 +18,10 @@ export function AdminForms() {
 
     const handlePlayersFileChange = (e) => {
         const { name, files } = e.target;
-        console.log(name)
-        console.log(files)
         setPlayersFormValues(prevState => ({
             ...prevState,
             [name]: files[0],
+            fileName: files[0]?.name || 'Няма избран файл'
         }));
 
         const formData = new FormData();
@@ -44,12 +42,15 @@ export function AdminForms() {
         setTeamsFormValues(prevState => ({
             ...prevState,
             [name]: files[0],
+            [`${name}FileName`]: files[0]?.name || 'Няма избран файл'
         }));
 
         const formData = new FormData();
         formData.append('teamName', teamsFormValues.teamName);
         formData.append('teamPhoto', teamsFormValues.teamPhoto);
         formData.append('teamLogo', teamsFormValues.teamLogo);
+
+        console.log(teamsFormValues)
 
     };
 
@@ -66,6 +67,7 @@ export function AdminForms() {
         setManagersFormValues(prevState => ({
             ...prevState,
             [name]: files[0],
+            fileName: files[0]?.name || 'Няма избран файл'
         }));
 
         const formData = new FormData();
@@ -82,7 +84,6 @@ export function AdminForms() {
 
         switch (endpoint) {
             case 'players':
-                console.log(playersFormValues)
                 postPlayers(playersFormValues)
                 break;
             case 'teams':
@@ -116,7 +117,7 @@ export function AdminForms() {
                             name="photo"
                             onChange={(e) => handlePlayersFileChange(e, setPlayersFormValues)}
                         />
-                        <span className="file-name"></span>
+                        <span className="file-name">{playersFormValues.fileName}</span>
                     </div>
                     <button type="submit">Добави</button>
                 </form>
@@ -132,7 +133,7 @@ export function AdminForms() {
                             name="teamPhoto"
                             onChange={(e) => handleTeamsFileChange(e, setTeamsFormValues)}
                         />
-                        <span className="file-name"></span>
+                        <span className="file-name">{teamsFormValues.teamPhotoFileName}</span>
                     </div>
                     <div className="file-input-container">
                         <label className="custom-file-label" htmlFor="team-logo-input">Лого</label>
@@ -143,7 +144,7 @@ export function AdminForms() {
                             name="teamLogo"
                             onChange={(e) => handleTeamsFileChange(e, setTeamsFormValues)}
                         />
-                        <span className="file-name"></span>
+                        <span className="file-name">{teamsFormValues.teamLogoFileName}</span>
                     </div>
                     <button type="submit">Добави</button>
                 </form>
@@ -159,7 +160,7 @@ export function AdminForms() {
                             name="file"
                             onChange={(e) => handleManagerFileChange(e, setManagersFormValues)}
                         />
-                        <span className="file-name">{fileName}</span>
+                        <span className="file-name">{managersFormValues.fileName}</span>
                     </div>
                     <button type="submit">Добави</button>
                 </form>
