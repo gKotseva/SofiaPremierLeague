@@ -1,12 +1,29 @@
 import { useState } from 'react';
 import './Admin.modules.css';
 import { postManagers, postPlayers, postStaff, postTeams } from '../../services/adminService';
+import { FormSelector } from './AdminHomeFormSelector';
+import AdminFormModal from '../modals/AdminFormModal';
+
 
 export function AdminForms() {
+    const [selectedForm, setSelectedForm] = useState('');
     const [playersFormValues, setPlayersFormValues] = useState({ fileName: 'Няма избран файл' })
     const [teamsFormValues, setTeamsFormValues] = useState({ teamPhotoFileName: 'Няма избран файл', teamLogoFileName: 'Няма избран файл' })
     const [managersFormValues, setManagersFormValues] = useState({ fileName: 'Няма избран файл' })
     const [staffFormValues, setStaffFormValues] = useState({})
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleFormSelection = (option) => {
+        setSelectedForm(option);
+        setIsModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsModalOpen(false);
+        setSelectedForm(null); 
+    };
+
 
     const handlePlayerChange = (e) => {
         const { name, value } = e.target;
@@ -101,9 +118,12 @@ export function AdminForms() {
 
     };
 
+
     return (
         <>
-            <div className="form-container">
+        <FormSelector selectedForm={selectedForm} handleFormSelection={handleFormSelection} />
+        <AdminFormModal isOpen={isModalOpen} onClose={handleModalClose}>
+            {selectedForm === 'players' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'players')}>
                     <h3>Добави играч</h3>
                     <label>Име<input type="text" name="name" onChange={handlePlayerChange} /></label>
@@ -121,6 +141,8 @@ export function AdminForms() {
                     </div>
                     <button type="submit">Добави</button>
                 </form>
+            )}
+            {selectedForm === 'teams' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'teams')}>
                     <h3>Добави отбор</h3>
                     <label>Име<input type="text" name="teamName" onChange={handleTeamChange} /></label>
@@ -148,6 +170,8 @@ export function AdminForms() {
                     </div>
                     <button type="submit">Добави</button>
                 </form>
+            )}
+            {selectedForm === 'managers' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'managers')}>
                     <h3>Добави мениджър</h3>
                     <label>Име<input type="text" name="name" value={managersFormValues.name} onChange={handleManagersChange} /></label>
@@ -164,12 +188,15 @@ export function AdminForms() {
                     </div>
                     <button type="submit">Добави</button>
                 </form>
+            )}
+            {selectedForm === 'staff' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'staff')}>
                     <h3>Добави персонал</h3>
                     <label>Име<input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
                     <button type="submit">Добави</button>
                 </form>
-            </div>
+            )}
+            </AdminFormModal>
         </>
     );
 
