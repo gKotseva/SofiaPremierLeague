@@ -46,6 +46,12 @@ export const postLeagues = async (formData) => {
     return result;
 };
 
+export const postSeasons = async (formData) => {
+    const result = await request.post('/api/admin/seasons', formData)
+
+    return result;
+};
+
 export const postManagers = async (formData) => {
     const result = await request.post('/api/admin/managers', formData)
 

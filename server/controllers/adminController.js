@@ -99,7 +99,19 @@ router.post('/staff', async (req, res) => {
 router.post('/leagues', async (req, res) => {
   try {
       const {name} = req.body
-      const sqlQuery = `INSERT INTO leagues (name) VALUES ('${name}')`;
+      const sqlQuery = `INSERT INTO leagues (league_name) VALUES ('${name}')`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${name} to the database!`)
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+router.post('/seasons', async (req, res) => {
+  try {
+      const {name} = req.body
+      const sqlQuery = `INSERT INTO seasons (seasons_name) VALUES ('${name}')`;
       await db.executeQuery(sqlQuery);
       res.json(`Successfully added ${name} to the database!`)
   } catch (error) {
