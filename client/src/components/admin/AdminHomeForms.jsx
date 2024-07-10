@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Admin.modules.css';
-import { postManagers, postPlayers, postStaff, postTeams } from '../../services/adminService';
+import { postLeagues, postManagers, postPlayers, postSeasons, postStaff, postTeams } from '../../services/adminService';
 import { FormSelector } from './AdminHomeFormSelector';
 import AdminFormModal from '../modals/AdminFormModal';
 
@@ -12,6 +12,7 @@ export function AdminForms() {
     const [managersFormValues, setManagersFormValues] = useState({ fileName: 'Няма избран файл' })
     const [staffFormValues, setStaffFormValues] = useState({})
     const [leagueFormValues, setLeagueFormValues] = useState({})
+    const [seasonFormValues, setSeasonFormValues] = useState({})
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,7 +25,6 @@ export function AdminForms() {
         setIsModalOpen(false);
         setSelectedForm(null); 
     };
-
 
     const handlePlayerChange = (e) => {
         const { name, value } = e.target;
@@ -102,6 +102,11 @@ export function AdminForms() {
         setLeagueFormValues({ [name]: value });
     }
 
+    const handleSeasonChange = (e) => {
+        const { name, value } = e.target;
+        setSeasonFormValues({ [name]: value });
+    }
+
     const onSubmit = async (e, endpoint) => {
         e.preventDefault();
 
@@ -117,6 +122,12 @@ export function AdminForms() {
                 break;
             case 'staff':
                 await postStaff(staffFormValues)
+                break;
+            case 'leagues':
+                await postLeagues(leagueFormValues)
+                break;
+            case 'seasons':
+                await postSeasons(seasonFormValues)
                 break;
             default:
                 return;
@@ -205,7 +216,14 @@ export function AdminForms() {
             {selectedForm === 'leagues' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'leagues')}>
                     <h3>Добави лига</h3>
-                    <label>Име<input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
+                    <label>Име<input type="text" name="name" value={leagueFormValues.name} onChange={handleLeagueChange} /></label>
+                    <button type="submit">Добави</button>
+                </form>
+            )}
+            {selectedForm === 'seasons' && (
+                <form className="input-form" onSubmit={(e) => onSubmit(e, 'seasons')}>
+                    <h3>Добави сезон</h3>
+                    <label>Име<input type="text" name="name" value={seasonFormValues.name} onChange={handleSeasonChange} /></label>
                     <button type="submit">Добави</button>
                 </form>
             )}

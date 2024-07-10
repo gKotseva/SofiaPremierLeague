@@ -10,7 +10,8 @@ export function FormSelector({ selectedForm, handleFormSelection }) {
         { bg: "отбор", en: "teams" },
         { bg: "мениджър", en: "managers" },
         { bg: "персонал", en: "staff" },
-        { bg: "лиги", en: "leagues" },
+        { bg: "лига", en: "leagues" },
+        { bg: "сезон", en: "seasons" },
     ];
 
     const handleOptionClick = (option) => {
