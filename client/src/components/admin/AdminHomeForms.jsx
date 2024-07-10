@@ -11,6 +11,7 @@ export function AdminForms() {
     const [teamsFormValues, setTeamsFormValues] = useState({ teamPhotoFileName: 'Няма избран файл', teamLogoFileName: 'Няма избран файл' })
     const [managersFormValues, setManagersFormValues] = useState({ fileName: 'Няма избран файл' })
     const [staffFormValues, setStaffFormValues] = useState({})
+    const [leagueFormValues, setLeagueFormValues] = useState({})
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -94,6 +95,11 @@ export function AdminForms() {
     const handleStaffChange = (e) => {
         const { name, value } = e.target;
         setStaffFormValues({ [name]: value });
+    }
+
+    const handleLeagueChange = (e) => {
+        const { name, value } = e.target;
+        setLeagueFormValues({ [name]: value });
     }
 
     const onSubmit = async (e, endpoint) => {
@@ -192,6 +198,13 @@ export function AdminForms() {
             {selectedForm === 'staff' && (
                 <form className="input-form" onSubmit={(e) => onSubmit(e, 'staff')}>
                     <h3>Добави персонал</h3>
+                    <label>Име<input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
+                    <button type="submit">Добави</button>
+                </form>
+            )}
+            {selectedForm === 'leagues' && (
+                <form className="input-form" onSubmit={(e) => onSubmit(e, 'leagues')}>
+                    <h3>Добави лига</h3>
                     <label>Име<input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
                     <button type="submit">Добави</button>
                 </form>
