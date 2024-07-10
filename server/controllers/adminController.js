@@ -96,6 +96,18 @@ router.post('/staff', async (req, res) => {
     }
 });
 
+router.post('/leagues', async (req, res) => {
+  try {
+      const {name} = req.body
+      const sqlQuery = `INSERT INTO leagues (name) VALUES ('${name}')`;
+      await db.executeQuery(sqlQuery);
+      res.json(`Successfully added ${name} to the database!`)
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
 router.post('/managers', upload.fields([{ name: 'file', maxCount: 1 }]), async (req, res) => {
     try {
       const { name } = req.body;
