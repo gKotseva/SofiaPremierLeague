@@ -1,7 +1,6 @@
 const buildOptions = (data) => {
     const options = {};
 
-    // Check if the data is FormData
     if (data instanceof FormData) {
         options.body = data;
     } else if (typeof data === 'object' && data !== null) {

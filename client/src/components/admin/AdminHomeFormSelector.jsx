@@ -1,10 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 import './Admin.modules.css';
 
-export function FormSelector({ selectedForm, handleFormSelection }) {
-
-    const [selectedOption, setSelectedOption] = useState(null);
-
+export function FormSelector({ handleFormSelection }) {
     const options = [
         { bg: "играч", en: "players" },
         { bg: "отбор", en: "teams" },
@@ -14,18 +11,13 @@ export function FormSelector({ selectedForm, handleFormSelection }) {
         { bg: "сезон", en: "seasons" },
     ];
 
-    const handleOptionClick = (option) => {
-        setSelectedOption(option.en)
-        handleFormSelection(option.en)
-    };
-
     return (
         <div className="dropdown-container">
             <h3 className="dropdown-name">ДОБАВИ</h3>
             <div className="dropdown-options">
                 <ul>
                     {options.map((option, index) => (
-                        <li key={index} onClick={() => handleOptionClick(option)}>
+                        <li key={index} onClick={() => handleFormSelection(option.en)}>
                             {option.bg}
                         </li>
                     ))}
