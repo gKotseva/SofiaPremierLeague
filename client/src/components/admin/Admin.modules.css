@@ -299,7 +299,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 17em;
+    width: 15em;
     padding: 1em 2em;
     border-radius: 2em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -319,6 +319,10 @@
 
 .container-stats:nth-child(4) {
     background-color: #DFCCFB;
+}
+
+.container-stats:nth-child(5) {
+    background-color: #a9ebf6;
 }
 
 .container-stats-image {
@@ -357,6 +361,10 @@
     background-color: #CBB8E7;
 }
 
+.container-stats:nth-child(5) .container-stats-image {
+    background-color: #81C1CC;
+}
+
 .container-stats-stats p:nth-child(1){
     font-size: 20px;
 }
@@ -374,6 +382,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .dropdown-name {
