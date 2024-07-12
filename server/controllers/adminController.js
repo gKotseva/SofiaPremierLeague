@@ -186,4 +186,11 @@ router.post('/players', upload.fields([{ name: 'photo', maxCount: 1 }]), async (
   }
 });
 
+router.post('/awards', upload.fields([{ name: 'awardFile', maxCount: 1 }]), async(req, res) => {
+  // const currentAward = req.body.award.toLowerCase()
+  console.log(req.body)
+  console.log(req.files)
+
+})
+
 module.exports = router;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Admin.modules.css';
-import { postLeagues, postManagers, postPlayers, postSeasons, postStaff, postTeams } from '../../services/adminService';
+import { postAwards, postLeagues, postManagers, postPlayers, postSeasons, postStaff, postTeams } from '../../services/adminService';
 import { FormSelector } from './AdminHomeFormSelector';
 import AdminFormModal from '../modals/AdminFormModal';
 
@@ -38,6 +38,8 @@ export function AdminForms() {
 
     const handleAwardsFileChange = (e) => {
         const { name, files } = e.target;
+
+        console.log(files)
         setAwardsFormValues((prevState) => ({
             ...prevState,
             [name]: files[0],
@@ -110,7 +112,7 @@ export function AdminForms() {
         setSeasonFormValues({ [name]: value });
     };
 
-    const onSubmit = async (e, endpoint) => {
+    const onSubmit = async (e, endpoint, award) => {
         e.preventDefault();
 
         switch (endpoint) {
@@ -133,7 +135,7 @@ export function AdminForms() {
                 await postSeasons(seasonFormValues);
                 break;
             case 'award':
-                console.log(awardsFormValues)
+                await postAwards(awardsFormValues)
                 break;
             default:
                 return;
@@ -241,7 +243,7 @@ export function AdminForms() {
                                 type="file"
                                 id="award-photo-input"
                                 className="file-input"
-                                name="file"
+                                name="awardFile"
                                 onChange={handleAwardsFileChange}
                             />
                             <span className="file-name">{awardsFormValues.fileName}</span>
