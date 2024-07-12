@@ -377,6 +377,12 @@
 
 /* Dropdown styles */
 
+.main-dropdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
 .dropdown-container {
     position: relative;
     display: flex;
