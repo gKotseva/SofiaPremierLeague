@@ -40,8 +40,8 @@ export function FormSelector({ handleFormSelection }) {
                 <div className="dropdown-options">
                     <ul>
                         {optionsAwards.map((option, index) => (
-                            <li key={index} onClick={() => handleFormSelection(option.en)}>
-                                {option.bg}
+                            <li key={index} onClick={() => handleFormSelection(option.award)}>
+                                {option.award}
                             </li>
                         ))}
                     </ul>

@@ -12,6 +12,7 @@ export function AdminForms() {
     const [playersFormValues, setPlayersFormValues] = useState({ fileName: 'Няма избран файл' });
     const [teamsFormValues, setTeamsFormValues] = useState({ teamPhotoFileName: 'Няма избран файл', teamLogoFileName: 'Няма избран файл' });
     const [managersFormValues, setManagersFormValues] = useState({ fileName: 'Няма избран файл' });
+    const [awardsFormValues, setAwardsFormValues] = useState({ fileName: 'Няма избран файл' });
     const [staffFormValues, setStaffFormValues] = useState({});
     const [leagueFormValues, setLeagueFormValues] = useState({});
     const [seasonFormValues, setSeasonFormValues] = useState({});
@@ -26,6 +27,23 @@ export function AdminForms() {
         setIsFormModalOpen(false);
         setIsFormSelectorOpen(true);
     };
+
+    const handleAwardChange = (e) => {
+        const { name, value } = e.target;
+        setAwardsFormValues((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    }
+
+    const handleAwardsFileChange = (e) => {
+        const { name, files } = e.target;
+        setAwardsFormValues((prevState) => ({
+            ...prevState,
+            [name]: files[0],
+            fileName: files[0]?.name || 'Няма избран файл',
+        }));
+    }
 
     const handlePlayerChange = (e) => {
         const { name, value } = e.target;
@@ -113,6 +131,9 @@ export function AdminForms() {
                 break;
             case 'seasons':
                 await postSeasons(seasonFormValues);
+                break;
+            case 'award':
+                console.log(awardsFormValues)
                 break;
             default:
                 return;
@@ -207,6 +228,24 @@ export function AdminForms() {
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'seasons')}>
                         <h3>Добави сезон</h3>
                         <label>Име<input type="text" name="name" value={seasonFormValues.name} onChange={handleSeasonChange} /></label>
+                        <button type="submit">Добави</button>
+                    </form>
+                )}
+                {(selectedForm === 'SELECT' || selectedForm === 'ARABESK' || selectedForm === 'KERELSKI' || selectedForm === 'GRIPSOCKS' || selectedForm === 'VR7 SERVICES' || selectedForm === 'Barber Shop Marty' || selectedForm === 'CAIRO') && (
+                    <form className="input-form" onSubmit={(e) => onSubmit(e, 'award', selectedForm)}>
+                        <h3>Добави в {selectedForm}</h3>
+                        <label>Име<input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
+                        <div className="file-input-container">
+                            <label className="custom-file-label" htmlFor="award-photo-input">Снимка</label>
+                            <input
+                                type="file"
+                                id="award-photo-input"
+                                className="file-input"
+                                name="file"
+                                onChange={handleAwardsFileChange}
+                            />
+                            <span className="file-name">{awardsFormValues.fileName}</span>
+                        </div>
                         <button type="submit">Добави</button>
                     </form>
                 )}
