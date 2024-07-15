@@ -39,11 +39,11 @@ export function AdminForms() {
     const handleAwardsFileChange = (e) => {
         const { name, files } = e.target;
 
-        console.log(files)
         setAwardsFormValues((prevState) => ({
             ...prevState,
             [name]: files[0],
             fileName: files[0]?.name || 'Няма избран файл',
+            formName: selectedForm,
         }));
     }
 
@@ -233,10 +233,29 @@ export function AdminForms() {
                         <button type="submit">Добави</button>
                     </form>
                 )}
-                {(selectedForm === 'SELECT' || selectedForm === 'ARABESK' || selectedForm === 'KERELSKI' || selectedForm === 'GRIPSOCKS' || selectedForm === 'VR7 SERVICES' || selectedForm === 'Barber Shop Marty' || selectedForm === 'CAIRO') && (
+                {(selectedForm === 'ARABESK' || selectedForm === 'CAIRO') && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'award', selectedForm)}>
                         <h3>Добави в {selectedForm}</h3>
                         <label>Име<input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
+                        <div className="file-input-container">
+                            <label className="custom-file-label" htmlFor="award-photo-input">Снимка</label>
+                            <input
+                                type="file"
+                                id="award-photo-input"
+                                className="file-input"
+                                name="awardFile"
+                                onChange={handleAwardsFileChange}
+                            />
+                            <span className="file-name">{awardsFormValues.fileName}</span>
+                        </div>
+                        <button type="submit">Добави</button>
+                    </form>
+                )}
+                {(selectedForm === 'SELECT' || selectedForm === 'KERELSKI' || selectedForm === 'GRIPSOCKS' || selectedForm === 'VR7 SERVICES' || selectedForm === 'Barber Shop Marty') && (
+                    <form className="input-form" onSubmit={(e) => onSubmit(e, 'award', selectedForm)}>
+                        <h3>Добави в {selectedForm}</h3>
+                        <label>Име<input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
+                        <label>Отбор<input type="text" name="teamName" value={awardsFormValues.teamName} onChange={handleAwardChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="award-photo-input">Снимка</label>
                             <input
