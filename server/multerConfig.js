@@ -9,7 +9,6 @@ const configureMulter = () => {
                 } else if (file.fieldname === 'teamLogo'){
                     cb(null, 'uploads/logos'); 
                 } else if (file.fieldname === 'awardFile'){
-                    console.log('gabi')
                     cb(null, 'uploads/awards'); 
                 } else {
                     cb(null, 'uploads/players')
