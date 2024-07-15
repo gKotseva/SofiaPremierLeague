@@ -128,7 +128,7 @@ router.post('/managers', upload.fields([{ name: 'file', maxCount: 1 }]), async (
       let file = null
 
       if(req.files && req.files['file']){
-        file = req.files['file'][0].path
+        file = '/' + req.files['file'][0].path
       }
 
       const sqlQuery = `INSERT INTO managers (manager_name, image) VALUES ('${name}', ${file ? `'${file}'` : 'NULL'})`;
@@ -148,11 +148,11 @@ router.post('/teams', upload.fields([{ name: 'teamPhoto', maxCount: 1 }, { name:
       let teamLogo = null
 
       if (req.files && req.files['teamPhoto']) {
-        teamPhoto = req.files['teamPhoto'][0].path
+        teamPhoto = '/' + req.files['teamPhoto'][0].path
       }
   
       if (req.files && req.files['teamLogo']) {
-        teamLogo = req.files['teamLogo'][0].path
+        teamLogo = '/' + req.files['teamLogo'][0].path
       }
       const sqlQuery = `INSERT INTO teams (team_name, team_image, logo_image) VALUES ('${teamName}', ${teamPhoto ? `'${teamPhoto}'` : 'NULL'}, ${teamLogo ? `'${teamLogo}'` : 'NULL'})`;
       await db.executeQuery(sqlQuery);
@@ -187,9 +187,23 @@ router.post('/players', upload.fields([{ name: 'photo', maxCount: 1 }]), async (
 });
 
 router.post('/awards', upload.fields([{ name: 'awardFile', maxCount: 1 }]), async(req, res) => {
-  // const currentAward = req.body.award.toLowerCase()
-  console.log(req.body)
-  console.log(req.files)
+  const currentAward = req.body.formName.toLowerCase()
+  const filePath = '/' + req.files['awardFile'][0].path
+  const name = req.body.name
+  const teamName = req.body.teamName
+
+  try {
+    if (currentAward === 'arabesk' || currentAward === "cairo") {
+      const sqlQuery = `INSERT INTO awards_${currentAward} (team_id, image) SELECT team_id, '${filePath}' FROM teams WHERE team_name = '${name}'`
+      await db.executeQuery(sqlQuery);
+    } else {
+      const sqlQuery = `INSERT INTO awards_${currentAward} (player_id, image) SELECT distinct p.player_id, '${filePath}' FROM players p join player_teams pt on p.player_id=pt.player_id join teams t on pt.team_id=t.team_id WHERE name = '${name}' and team_name = '${teamName}'`
+      await db.executeQuery(sqlQuery);
+    }
+
+  } catch (error) {
+    console.error(error)
+  }
 
 })
 
