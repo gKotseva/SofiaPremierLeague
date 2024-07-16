@@ -3,6 +3,8 @@ import './Admin.modules.css';
 import { postAwards, postLeagues, postManagers, postPlayers, postSeasons, postStaff, postTeams } from '../../services/adminService';
 import { FormSelector } from './AdminHomeFormSelector';
 import AdminFormModal from '../modals/AdminFormModal';
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export function AdminForms() {
     const [isFormSelectorOpen, setIsFormSelectorOpen] = useState(true);
@@ -117,25 +119,89 @@ export function AdminForms() {
 
         switch (endpoint) {
             case 'players':
-                postPlayers(playersFormValues);
+                try {
+                    if (!playersFormValues.name || !playersFormValues.number){
+                       return toast.error('Име и номер са задължителни!')
+                    }
+
+                    postPlayers(playersFormValues);
+
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             case 'teams':
-                await postTeams(teamsFormValues);
+                try {
+                    if (!teamsFormValues.teamName){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postTeams(teamsFormValues);
+                
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             case 'managers':
-                await postManagers(managersFormValues);
+                try {
+                    if (!managersFormValues.name){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postManagers(managersFormValues);
+                
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             case 'staff':
-                await postStaff(staffFormValues);
+                try {
+                    if (!staffFormValues.name){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postStaff(staffFormValues);
+                
+                } catch (error){
+                    toast.error(error)
+                }
+                
                 break;
             case 'leagues':
-                await postLeagues(leagueFormValues);
+                try {
+                    if (!leagueFormValues.name){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postLeagues(leagueFormValues);
+                
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             case 'seasons':
-                await postSeasons(seasonFormValues);
+                try {
+                    if (!seasonFormValues.name){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postSeasons(seasonFormValues);
+                
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             case 'award':
-                await postAwards(awardsFormValues)
+                try {
+                    if (!awardsFormValues.name){
+                       return toast.error('Име е задължително!')
+                    }
+
+                    await postAwards(awardsFormValues)
+                
+                } catch (error){
+                    toast.error(error)
+                }
                 break;
             default:
                 return;
@@ -149,8 +215,8 @@ export function AdminForms() {
                 {selectedForm === 'players' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'players')}>
                         <h3>Добави играч</h3>
-                        <label>Име<input type="text" name="name" onChange={handlePlayerChange} /></label>
-                        <label>Номер<input type="number" name="number" onChange={handlePlayerChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" onChange={handlePlayerChange} /></label>
+                        <label>Номер<span>*</span><input type="number" name="number" onChange={handlePlayerChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="file-input">Снимка</label>
                             <input
@@ -168,7 +234,7 @@ export function AdminForms() {
                 {selectedForm === 'teams' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'teams')}>
                         <h3>Добави отбор</h3>
-                        <label>Име<input type="text" name="teamName" onChange={handleTeamChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="teamName" onChange={handleTeamChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="team-photo-input">Снимка отбор</label>
                             <input
@@ -197,7 +263,7 @@ export function AdminForms() {
                 {selectedForm === 'managers' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'managers')}>
                         <h3>Добави мениджър</h3>
-                        <label>Име<input type="text" name="name" value={managersFormValues.name} onChange={handleManagersChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={managersFormValues.name} onChange={handleManagersChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="manager-photo-input">Снимка</label>
                             <input
@@ -215,28 +281,28 @@ export function AdminForms() {
                 {selectedForm === 'staff' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'staff')}>
                         <h3>Добави персонал</h3>
-                        <label>Име<input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={staffFormValues.name} onChange={handleStaffChange} /></label>
                         <button type="submit">Добави</button>
                     </form>
                 )}
                 {selectedForm === 'leagues' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'leagues')}>
                         <h3>Добави лига</h3>
-                        <label>Име<input type="text" name="name" value={leagueFormValues.name} onChange={handleLeagueChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={leagueFormValues.name} onChange={handleLeagueChange} /></label>
                         <button type="submit">Добави</button>
                     </form>
                 )}
                 {selectedForm === 'seasons' && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'seasons')}>
                         <h3>Добави сезон</h3>
-                        <label>Име<input type="text" name="name" value={seasonFormValues.name} onChange={handleSeasonChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={seasonFormValues.name} onChange={handleSeasonChange} /></label>
                         <button type="submit">Добави</button>
                     </form>
                 )}
                 {(selectedForm === 'ARABESK' || selectedForm === 'CAIRO') && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'award', selectedForm)}>
                         <h3>Добави в {selectedForm}</h3>
-                        <label>Име<input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="award-photo-input">Снимка</label>
                             <input
@@ -254,8 +320,8 @@ export function AdminForms() {
                 {(selectedForm === 'SELECT' || selectedForm === 'KERELSKI' || selectedForm === 'GRIPSOCKS' || selectedForm === 'VR7 SERVICES' || selectedForm === 'Barber Shop Marty') && (
                     <form className="input-form" onSubmit={(e) => onSubmit(e, 'award', selectedForm)}>
                         <h3>Добави в {selectedForm}</h3>
-                        <label>Име<input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
-                        <label>Отбор<input type="text" name="teamName" value={awardsFormValues.teamName} onChange={handleAwardChange} /></label>
+                        <label>Име<span>*</span><input type="text" name="name" value={awardsFormValues.name} onChange={handleAwardChange} /></label>
+                        <label>Отбор<span>*</span><input type="text" name="teamName" value={awardsFormValues.teamName} onChange={handleAwardChange} /></label>
                         <div className="file-input-container">
                             <label className="custom-file-label" htmlFor="award-photo-input">Снимка</label>
                             <input
