@@ -124,7 +124,8 @@ export function AdminForms() {
                        return toast.error('Име и номер са задължителни!')
                     }
 
-                    postPlayers(playersFormValues);
+                    await postPlayers(playersFormValues);
+                    toast.success('Добавено успешно!')
 
                 } catch (error){
                     toast.error(error)
@@ -137,6 +138,7 @@ export function AdminForms() {
                     }
 
                     await postTeams(teamsFormValues);
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
@@ -149,6 +151,7 @@ export function AdminForms() {
                     }
 
                     await postManagers(managersFormValues);
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
@@ -161,6 +164,7 @@ export function AdminForms() {
                     }
 
                     await postStaff(staffFormValues);
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
@@ -174,6 +178,7 @@ export function AdminForms() {
                     }
 
                     await postLeagues(leagueFormValues);
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
@@ -186,6 +191,7 @@ export function AdminForms() {
                     }
 
                     await postSeasons(seasonFormValues);
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
@@ -198,6 +204,7 @@ export function AdminForms() {
                     }
 
                     await postAwards(awardsFormValues)
+                    toast.success('Добавено успешно!')
                 
                 } catch (error){
                     toast.error(error)
