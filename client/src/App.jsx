@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { PATH } from './paths.js';
 import { HomeMain } from './components/home/HomeMain.jsx';
 import { Contact } from './components/zaNas/Contact.jsx';
@@ -42,6 +45,7 @@ import AdminTable from './components/admin/AdminTable.jsx';
 function App() {
   return (
       <div className="App">
+        <ToastContainer />
         {location.pathname !== '/admin' && <Navigation />}
         <Routes>
           <Route path={PATH.home} element={<HomeMain />} />
