@@ -41,11 +41,12 @@ import { Kupa } from './components/statistika/pages/Kupa.jsx';
 import { Admin } from './components/admin/Admin.jsx';
 import { AdminProvider } from './components/admin/AdminContext.jsx';
 import AdminTable from './components/admin/AdminTable.jsx';
+import toastConfig from './config/toastConfig.js';
 
 function App() {
   return (
       <div className="App">
-        <ToastContainer />
+        <ToastContainer {...toastConfig}/>
         {location.pathname !== '/admin' && <Navigation />}
         <Routes>
           <Route path={PATH.home} element={<HomeMain />} />
