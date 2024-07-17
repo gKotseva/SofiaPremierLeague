@@ -62,6 +62,17 @@ router.get('/staff', async (req, res) => {
     }
 });
 
+router.get('/matches', async (req, res) => {
+  try {
+      const sqlQuery = 'SELECT * from matches order by match_id desc';
+      const results = await db.executeQuery(sqlQuery);
+      res.json(results);
+  } catch (error) {
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 router.get('/stats', async (req, res) => {
   const playersCountQuery = 'SELECT COUNT(*) as count FROM players';
   const teamsCountQuery = 'SELECT COUNT(*) as count FROM teams';
