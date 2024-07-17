@@ -20,7 +20,8 @@ export function AdminStats() {
                     teamsCount: response.teamsCount,
                     playersCount: response.playersCount,
                     leaguesCount: response.leaguesCount,
-                    seasonsCount: response.seasonsCount
+                    seasonsCount: response.seasonsCount,
+                    matchesCount: response.matchesCount
                 })
             } catch (error) {
                 console.error(error)
@@ -56,7 +57,7 @@ export function AdminStats() {
                         <img src="football.png"></img>
                     </div>
                     <div className="container-stats-stats">
-                        <strong><p>9999</p></strong>
+                        <strong><p>{stats.matchesCount}</p></strong>
                         <p>мача</p>
                     </div>
                 </div>
