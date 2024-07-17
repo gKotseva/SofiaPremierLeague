@@ -71,9 +71,7 @@ export const postPlayers = async (formData) => {
 };
 
 export const postAwards = async (formData) => {
-    console.log(formData)
     const result = await request.post('/api/admin/awards', formData)
-    console.log(result)
 
     return result;
 };

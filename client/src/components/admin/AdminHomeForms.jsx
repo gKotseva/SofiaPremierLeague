@@ -114,7 +114,7 @@ export function AdminForms() {
         setSeasonFormValues({ [name]: value });
     };
 
-    const onSubmit = async (e, endpoint, award) => {
+    const onSubmit = async (e, endpoint) => {
         e.preventDefault();
 
         switch (endpoint) {
