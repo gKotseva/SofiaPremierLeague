@@ -29,7 +29,7 @@ export function AdminSide() {
                 <h1>отбори</h1>
             </div>
             <div className='overlay'>
-                <Link onClick={() => handleFetchAndNavigate(getMatches, ['Date', 'Location'], 'matches', '/admin/games')}><img src="./penalty-kick.png" alt="matches" /></Link>
+                <Link onClick={() => handleFetchAndNavigate(getMatches, ['Дата', 'Лига', 'Сезон', 'Рефер', 'Домакин', 'Гост', 'Резултат'], 'matches', '/admin/games')}><img src="./penalty-kick.png" alt="matches" /></Link>
                 <h1>мачове</h1>
             </div>
             <div className='overlay'>
