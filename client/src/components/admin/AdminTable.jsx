@@ -53,6 +53,8 @@ const AdminTable = () => {
         ));
     };
 
+    console.log(headers)
+
     const getCellContent = (item, header) => {
         switch (header) {
             case 'Снимка':
@@ -75,6 +77,20 @@ const AdminTable = () => {
                 return item.position_name;
             case 'Отбори':
                 return item.teams;
+            case 'Дата':
+                return item.match_date;
+            case 'Лига':
+                return item.league_id;
+            case 'Сезон':
+                return item.season_id;
+            case 'Рефер':
+                return item.referee_id;
+            case 'Домакин':
+                return item.home_team;
+            case 'Гост':
+                return item.away_team;
+            case 'Резултат':
+                return item.result;
             default:
                 return item[header.toLowerCase()] || '';
         }
