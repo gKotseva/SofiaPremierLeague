@@ -53,8 +53,6 @@ const AdminTable = () => {
         ));
     };
 
-    console.log(headers)
-
     const getCellContent = (item, header) => {
         switch (header) {
             case 'Снимка':
@@ -96,8 +94,29 @@ const AdminTable = () => {
         }
     };
 
+    let dataTypeBg = null
+
+    if (dataType === 'matches') {
+        dataTypeBg = 'мачове'
+
+    } else if (dataType === 'teams'){
+        dataTypeBg = 'отбори'
+
+    } else if (dataType === 'staff'){
+        dataTypeBg = 'персонал'
+
+    } else if (dataType === 'managers'){
+        dataTypeBg = 'мениджъри'
+
+    } else if (dataType === 'players'){
+        dataTypeBg = 'играчи'
+    }
+
+    console.log(dataTypeBg)
+
     return (
         <div className="main-table">
+            <h1>{dataTypeBg}</h1>
             <table className={`table-${dataType}`}>
                 <thead>
                     <tr>
