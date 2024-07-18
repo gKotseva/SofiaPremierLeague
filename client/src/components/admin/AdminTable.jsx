@@ -78,13 +78,13 @@ const AdminTable = () => {
             case 'Отбори':
                 return item.teams;
             case 'Дата':
-                return item.match_date;
+                return item.date;
             case 'Лига':
-                return item.league_id;
+                return item.league;
             case 'Сезон':
-                return item.season_id;
+                return item.season;
             case 'Рефер':
-                return item.referee_id;
+                return item.referee;
             case 'Домакин':
                 return item.home_team;
             case 'Гост':
