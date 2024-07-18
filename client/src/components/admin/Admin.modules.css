@@ -74,6 +74,12 @@
     align-items: center; 
 }
 
+.main-table h1 {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    color: #00563B;
+}
+
 .main-table table {
     border-spacing: 0;
     width: 100%; 
@@ -174,6 +180,24 @@
 
 .table-managers td:nth-child(2) {
     width: 200px;
+}
+
+/* Table matches */
+
+.table-matches td {
+    padding: 1em;
+}
+
+.table-matches td:nth-child(1) {
+    width: 100px;
+}
+
+.table-matches td:nth-child(2) {
+    width: 150px;
+}
+
+.table-matches td:nth-child(4) {
+    width: 150px;
 }
 
 
