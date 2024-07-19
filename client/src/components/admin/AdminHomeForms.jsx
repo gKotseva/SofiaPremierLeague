@@ -121,7 +121,7 @@ export function AdminForms() {
             case 'players':
                 try {
                     if (!playersFormValues.name || !playersFormValues.number){
-                       return toast.error('Име и номер са задължителни!')
+                       return toast.error('Полетата "име" и "номер" са задължителни!')
                     }
 
                     await postPlayers(playersFormValues);
@@ -134,7 +134,7 @@ export function AdminForms() {
             case 'teams':
                 try {
                     if (!teamsFormValues.teamName){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postTeams(teamsFormValues);
@@ -147,7 +147,7 @@ export function AdminForms() {
             case 'managers':
                 try {
                     if (!managersFormValues.name){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postManagers(managersFormValues);
@@ -160,7 +160,7 @@ export function AdminForms() {
             case 'staff':
                 try {
                     if (!staffFormValues.name){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postStaff(staffFormValues);
@@ -174,7 +174,7 @@ export function AdminForms() {
             case 'leagues':
                 try {
                     if (!leagueFormValues.name){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postLeagues(leagueFormValues);
@@ -187,7 +187,7 @@ export function AdminForms() {
             case 'seasons':
                 try {
                     if (!seasonFormValues.name){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postSeasons(seasonFormValues);
@@ -200,7 +200,7 @@ export function AdminForms() {
             case 'award':
                 try {
                     if (!awardsFormValues.name){
-                       return toast.error('Име е задължително!')
+                       return toast.error('Полето "име" е задължително!')
                     }
 
                     await postAwards(awardsFormValues)

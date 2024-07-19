@@ -112,8 +112,6 @@ const AdminTable = () => {
         dataTypeBg = 'играчи'
     }
 
-    console.log(dataTypeBg)
-
     return (
         <div className="main-table">
             <h1>{dataTypeBg}</h1>

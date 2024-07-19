@@ -82,7 +82,6 @@
 
 .main-table table {
     border-spacing: 0;
-    width: 100%; 
     margin-bottom: 1em;
 }
 
@@ -110,6 +109,7 @@
 .pagination {
     display: flex;
     justify-content: center;
+    margin-bottom: 2em;
 }
 
 .pagination button {
@@ -170,6 +170,10 @@
 }
 
 /* Table staff */
+
+.main-table .table-staff {
+    width: 20%;
+}
 
 .table-staff td {
     width: 20em;
