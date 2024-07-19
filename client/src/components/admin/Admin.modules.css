@@ -78,11 +78,25 @@
     text-transform: uppercase;
     margin-bottom: 1em;
     color: #00563B;
+    font-style: italic;
 }
 
 .main-table table {
     border-spacing: 0;
     margin-bottom: 1em;
+}
+
+.main-table a {
+    color: rgb(101, 78, 232);
+    text-decoration: none;
+}
+
+.main-table a i {
+    margin-left: 0.5em;
+}
+
+.main-table a:hover {
+    font-style:italic;
 }
 
 .main-table thead {

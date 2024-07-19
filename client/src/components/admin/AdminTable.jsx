@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AdminContext } from './AdminContext';
 import ImageModal from '../modals/ImageModal';
 import './Admin.modules.css';
+
 
 const AdminTable = () => {
     const { data, headers, dataType } = useContext(AdminContext);
@@ -64,7 +66,17 @@ const AdminTable = () => {
             case 'Номер':
                 return item.player_number || '';
             case 'Име':
-                return item.name || item.team_name || item.manager_name || '';
+                const name = item.name || item.team_name || item.manager_name || '';
+
+                if (dataType === 'staff'){
+                    return item.name || item.team_name || item.manager_name || '';
+                }
+
+                return (
+                    <Link to={`/admin/${dataType}/${dataType}-${item.id}`}>
+                        {name}<i className="fas fa-link"></i>
+                    </Link>
+                )
             case 'Отборна снимка':
                 return (
                     <button onClick={() => openModal(item.team_image || '/image.png')}>
