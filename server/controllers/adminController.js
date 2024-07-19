@@ -10,7 +10,7 @@ const upload = configureMulter();
 router.get('/players', async (req, res) => {
   try {
     const sqlQuery = `
-        SELECT p.player_id, p.name, p.image, p.player_number, 
+        SELECT p.player_id as id, p.name, p.image, p.player_number, 
                GROUP_CONCAT(DISTINCT pp.position_name SEPARATOR ', ') AS 'position_name', 
                GROUP_CONCAT(DISTINCT t.team_name SEPARATOR ', ') AS 'teams' 
         FROM players p
@@ -31,7 +31,7 @@ router.get('/players', async (req, res) => {
 
 router.get('/teams', async (req, res) => {
   try {
-    const sqlQuery = 'SELECT * from teams';
+    const sqlQuery = 'SELECT team_id as id, team_name, logo_image, team_image from teams';
     const results = await db.executeQuery(sqlQuery);
     res.json(results);
   } catch (error) {
@@ -42,7 +42,7 @@ router.get('/teams', async (req, res) => {
 
 router.get('/managers', async (req, res) => {
   try {
-    const sqlQuery = 'SELECT * from managers';
+    const sqlQuery = 'SELECT manager_id as id, manager_name, image from managers';
     const results = await db.executeQuery(sqlQuery);
     res.json(results);
   } catch (error) {
@@ -53,7 +53,7 @@ router.get('/managers', async (req, res) => {
 
 router.get('/staff', async (req, res) => {
   try {
-    const sqlQuery = 'SELECT * from referees';
+    const sqlQuery = 'SELECT referee_id as id, name from referees';
     const results = await db.executeQuery(sqlQuery);
     res.json(results);
   } catch (error) {
