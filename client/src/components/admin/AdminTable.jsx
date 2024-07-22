@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AdminContext } from './AdminContext';
 import ImageModal from '../modals/ImageModal';
 import './Admin.modules.css';
+import { AdminItem } from './AdminItem';
 
 
 const AdminTable = () => {
@@ -73,7 +74,7 @@ const AdminTable = () => {
                 }
 
                 return (
-                    <Link to={`/admin/${dataType}/${dataType}-${item.id}`}>
+                    <Link to={`/admin/${dataType}/${item.id}`}>
                         {name}<i className="fas fa-link"></i>
                     </Link>
                 )
