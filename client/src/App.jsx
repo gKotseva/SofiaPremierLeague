@@ -42,6 +42,7 @@ import { Admin } from './components/admin/Admin.jsx';
 import { AdminProvider } from './components/admin/AdminContext.jsx';
 import AdminTable from './components/admin/AdminTable.jsx';
 import toastConfig from './config/toastConfig.js';
+import { AdminItem } from './components/admin/AdminItem.jsx';
 
 function App() {
   return (
@@ -100,6 +101,7 @@ function App() {
             <Route path="managers" element={<AdminTable />} />
             <Route path="staff" element={<AdminTable />} />
           </Route>
+          <Route path="/admin/:dataType/:id" element={<AdminItem />} />
         </Routes>
       </div>
   );
