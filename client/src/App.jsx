@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {toast, ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { PATH } from './paths.js';
 import { HomeMain } from './components/home/HomeMain.jsx';
@@ -41,69 +41,64 @@ import { Kupa } from './components/statistika/pages/Kupa.jsx';
 import { Admin } from './components/admin/Admin.jsx';
 import { AdminProvider } from './components/admin/AdminContext.jsx';
 import AdminTable from './components/admin/AdminTable.jsx';
-import toastConfig from './config/toastConfig.js';
 import { AdminItem } from './components/admin/AdminItem.jsx';
+import toastConfig from './config/toastConfig.js';
+import { AdminHome } from './components/admin/AdminHome.jsx';
 
 function App() {
   return (
-      <div className="App">
-        <ToastContainer {...toastConfig}/>
-        {location.pathname !== '/admin' && <Navigation />}
-        <Routes>
-          <Route path={PATH.home} element={<HomeMain />} />
-          <Route path={PATH.kontakti} element={<Contact />} />
-          <Route path={PATH.pravila} element={<Pravila />} />
-          <Route path={PATH.hallOfFame} element={<HallOfFame />} />
-          <Route path={PATH.prava} element={<Prava />} />
-          <Route path={PATH.nakazaniq} element={<Nakazaniq />} />
-          <Route path={PATH.mixzona} element={<MixZona />} />
-          <Route path={PATH.SelectGolNaMesetsa} element={<SelectGolNaMesetsa />} />
-          <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<KerelskiIgrachNaSedmitsata />} />
-          <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<GripSocksIgrachNaSedmitsata />} />
-          <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<VR7ServicesIgrachNaSedmitsata />} />
-          <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />} />
-          <Route path={PATH.CairoFareplay} element={<CairoFareplay />} />
-          <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />} />
-          <Route path={PATH.superliga} element={<Select />} />
-          <Route path={PATH.malus} element={<SPLMalus />} />
-          <Route path={PATH.cairo} element={<SPL1Cairo />} />
-          <Route path={PATH.flame} element={<SPL2Flame />} />
-          <Route path={PATH.arabesk} element={<SPL3Arabesk />} />
-          <Route path={PATH.spl4} element={<SPL4 />} />
-          <Route path={PATH.spl5} element={<SPL5 />} />
-          <Route path={PATH.statistikaSuperliga} element={<Superliga />} />
-          <Route path={PATH.statistikaMalus} element={<Malus />} />
-          <Route path={PATH.statistikaCairo} element={<Cairo />} />
-          <Route path={PATH.statistikaFlame} element={<Flame />} />
-          <Route path={PATH.statistikaArabesk} element={<Arabesk />} />
-          <Route path={PATH.statistikaSpl4} element={<StatistikaSPL4 />} />
-          <Route path={PATH.statistikaSpl5} element={<StatistikaSPL5 />} />
-          <Route path={PATH.statistikaSever} element={<SPLSever />} />
-          <Route path={PATH.statistikaIztok} element={<SPLIztok />} />
-          <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />} />
-          <Route path={PATH.shemaTurnir} element={<ShemaKupa />} />
-          <Route path={PATH.statistikaKupa} element={<Kupa />} />
+    <div className="App">
+      <ToastContainer {...toastConfig} />
+      <Routes>
+        <Route path={PATH.home} element={<HomeMain />} />
+        <Route path={PATH.kontakti} element={<Contact />} />
+        <Route path={PATH.pravila} element={<Pravila />} />
+        <Route path={PATH.hallOfFame} element={<HallOfFame />} />
+        <Route path={PATH.prava} element={<Prava />} />
+        <Route path={PATH.nakazaniq} element={<Nakazaniq />} />
+        <Route path={PATH.mixzona} element={<MixZona />} />
+        <Route path={PATH.SelectGolNaMesetsa} element={<SelectGolNaMesetsa />} />
+        <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<KerelskiIgrachNaSedmitsata />} />
+        <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<GripSocksIgrachNaSedmitsata />} />
+        <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<VR7ServicesIgrachNaSedmitsata />} />
+        <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />} />
+        <Route path={PATH.CairoFareplay} element={<CairoFareplay />} />
+        <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />} />
+        <Route path={PATH.superliga} element={<Select />} />
+        <Route path={PATH.malus} element={<SPLMalus />} />
+        <Route path={PATH.cairo} element={<SPL1Cairo />} />
+        <Route path={PATH.flame} element={<SPL2Flame />} />
+        <Route path={PATH.arabesk} element={<SPL3Arabesk />} />
+        <Route path={PATH.spl4} element={<SPL4 />} />
+        <Route path={PATH.spl5} element={<SPL5 />} />
+        <Route path={PATH.statistikaSuperliga} element={<Superliga />} />
+        <Route path={PATH.statistikaMalus} element={<Malus />} />
+        <Route path={PATH.statistikaCairo} element={<Cairo />} />
+        <Route path={PATH.statistikaFlame} element={<Flame />} />
+        <Route path={PATH.statistikaArabesk} element={<Arabesk />} />
+        <Route path={PATH.statistikaSpl4} element={<StatistikaSPL4 />} />
+        <Route path={PATH.statistikaSpl5} element={<StatistikaSPL5 />} />
+        <Route path={PATH.statistikaSever} element={<SPLSever />} />
+        <Route path={PATH.statistikaIztok} element={<SPLIztok />} />
+        <Route path={PATH.statistikaSummer} element={<MalusFootballSummerCup />} />
+        <Route path={PATH.shemaTurnir} element={<ShemaKupa />} />
+        <Route path={PATH.statistikaKupa} element={<Kupa />} />
 
-          <Route path="/admin" element={
-            <AdminProvider>
-              <Admin />
-            </AdminProvider>
-          } />
-          
-          <Route path="/admin/*" element={
-            <AdminProvider>
-              <Admin />
-            </AdminProvider>
-          }>
-            <Route path="players" element={<AdminTable />} />
-            <Route path="teams" element={<AdminTable />} />
-            <Route path="games" element={<AdminTable />} />
-            <Route path="managers" element={<AdminTable />} />
-            <Route path="staff" element={<AdminTable />} />
-          </Route>
-          <Route path="/admin/:dataType/:id" element={<AdminItem />} />
-        </Routes>
-      </div>
+        <Route path="/admin" element={
+          <AdminProvider>
+            <Admin />
+          </AdminProvider>
+        }>
+          <Route index element={<AdminHome />} />
+          <Route path="players" element={<AdminTable />} />
+          <Route path="teams" element={<AdminTable />} />
+          <Route path="games" element={<AdminTable />} />
+          <Route path="managers" element={<AdminTable />} />
+          <Route path="staff" element={<AdminTable />} />
+          <Route path=":dataType/:id" element={<AdminItem />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
