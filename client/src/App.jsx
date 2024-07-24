@@ -41,7 +41,7 @@ import { Kupa } from './components/statistika/pages/Kupa.jsx';
 import { Admin } from './components/admin/Admin.jsx';
 import { AdminProvider } from './components/admin/AdminContext.jsx';
 import AdminTable from './components/admin/AdminTable.jsx';
-import { AdminItem } from './components/admin/AdminItem.jsx';
+import { AdminItem } from './components/admin/AdminItemPlayers.jsx';
 import toastConfig from './config/toastConfig.js';
 import { AdminHome } from './components/admin/AdminHome.jsx';
 
@@ -98,7 +98,7 @@ function App() {
           <Route path="games" element={<AdminTable />} />
           <Route path="managers" element={<AdminTable />} />
           <Route path="staff" element={<AdminTable />} />
-          <Route path=":dataType/:id" element={<AdminItem />} />
+          <Route path="players/:id" element={<AdminItem />} />
         </Route>
       </Routes>
     </div>
