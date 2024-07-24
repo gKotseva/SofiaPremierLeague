@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -45,10 +45,13 @@ import { AdminItem } from './components/admin/AdminItem.jsx';
 import toastConfig from './config/toastConfig.js';
 import { AdminHome } from './components/admin/AdminHome.jsx';
 
+const isAdminPath = location.pathname.startsWith('/admin');
+
 function App() {
   return (
     <div className="App">
       <ToastContainer {...toastConfig} />
+      {!isAdminPath && <Navigation />}
       <Routes>
         <Route path={PATH.home} element={<HomeMain />} />
         <Route path={PATH.kontakti} element={<Contact />} />
