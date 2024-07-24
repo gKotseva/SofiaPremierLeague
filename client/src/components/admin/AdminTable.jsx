@@ -127,7 +127,7 @@ const AdminTable = () => {
 
     return (
         <div className="main-table">
-            <h1>{dataTypeBg}</h1>
+            <h1>Списък {dataTypeBg}</h1>
             <table className={`table-${dataType}`}>
                 <thead>
                     <tr>
