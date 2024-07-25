@@ -4,13 +4,13 @@ export function TableResults () {
     return (
         <>
         <div className='results'>
-            <h1>Резултати</h1>
+            <h1>Програма и Резултати</h1>
             <table>
                 <thead>
                     <tr>
                         <th>Дата</th>
                         <th>Домакин</th>
-                        <th>Резултат</th>
+                        <th>Час / Резултат</th>
                         <th>Гост</th>
                         <th>Терен</th>
                         <th>Ден</th>

@@ -1,6 +1,8 @@
 .standings {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #99BC85;
     padding: 2em;
     color: black;
@@ -17,8 +19,14 @@
     }
 }
 
+.standings h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
 .standings table {
     border-collapse: collapse;
+    width: 80%;
 }
 
 .standings th, .standings td {
@@ -31,12 +39,16 @@
     color: white;
 }
 
+.standings td:nth-child(1) {
+    width: 1%;
+}
+
 .standings td:nth-child(2) {
-    width: 300px;
+    width: 30%;
 }
 
 .standings td:nth-child(4) {
-    width: 200px;
+    width: 25%;
     text-align: center;
 }
 

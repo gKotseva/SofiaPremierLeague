@@ -38,23 +38,23 @@
     color: white;
 }
 
+.results td:nth-child(1), .results td:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
+
 .results td:nth-child(2) {
-    width: 400px;
+    width: 30%;
     text-align: end;
 }
 
 .results td:nth-child(4) {
-    width: 400px;
+    width: 30%;
     text-align: left;
 }
 
-.results td:nth-child(5) {
-    width: 120px;
-    text-align: center;
-}
-
-.results td:nth-child(1), .results td:nth-child(3), .results td:nth-child(6), .results td:nth-child(7), .results td:nth-child(8), .results td:nth-child(9) {
-    width: 120px;
+.results td:nth-child(5), .results td:nth-child(6) {
+    width: 10%;
     text-align: center;
 }
 
