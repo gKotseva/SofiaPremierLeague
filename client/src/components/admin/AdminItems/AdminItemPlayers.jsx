@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { AdminContext } from './AdminContext';
+import { AdminContext } from '../AdminContext';
 
-export function AdminItem() {
+import './AdminItems.modules.css'
+
+
+export function AdminItemPlayers() {
     const { data } = useContext(AdminContext);
     const { id } = useParams();
 

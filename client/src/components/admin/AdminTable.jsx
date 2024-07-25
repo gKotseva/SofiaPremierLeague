@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AdminContext } from './AdminContext';
 import ImageModal from '../modals/ImageModal';
 import './Admin.modules.css';
-import { AdminItem } from './AdminItemPlayers';
+import { AdminItemPlayers } from './AdminItems/AdminItemPlayers';
 
 
 const AdminTable = () => {
