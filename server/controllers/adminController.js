@@ -16,12 +16,12 @@ router.get('/players', async (req, res) => {
                GROUP_CONCAT(DISTINCT s.seasons_name separator ', ') as 'seasons',
                GROUP_CONCAT(DISTINCT l.league_name separator ', ') as 'leagues'
         FROM players p
-        INNER JOIN player_positions ps ON p.player_id = ps.player_id
-        INNER JOIN positions pp ON ps.position_id = pp.position_id
-        INNER JOIN player_teams pt ON p.player_id = pt.player_id
-        INNER JOIN teams t ON pt.team_id = t.team_id
-        INNER JOIN seasons s ON pt.season_id = s.season_id
-        INNER JOIN leagues l ON pt.league_id = l.league_id
+        LEFT JOIN player_positions ps ON p.player_id = ps.player_id
+        LEFT JOIN positions pp ON ps.position_id = pp.position_id
+        LEFT JOIN player_teams pt ON p.player_id = pt.player_id
+        LEFT JOIN teams t ON pt.team_id = t.team_id
+        LEFT JOIN seasons s ON pt.season_id = s.season_id
+        LEFT JOIN leagues l ON pt.league_id = l.league_id
         GROUP BY p.player_id, p.name, p.image, p.player_number
         ORDER BY p.player_id;
         `;
