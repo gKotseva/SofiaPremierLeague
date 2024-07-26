@@ -32,6 +32,11 @@ export const getAllStats = async () => {
     return result;
 }
 
+export const getCurrentMatches = async () => {
+    const result = await request.get('/api/admin/currentMatches')
+    return result;
+}
+
 // Post requests
 
 export const postStaff = async (formData) => {
