@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const db = require('../db');
 const configureMulter = require('../multerConfig');
+const { formatDateToDMY } = require('../utils');
 
 const upload = configureMulter();
 
@@ -105,6 +106,51 @@ router.get('/stats', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 })
+
+router.get('/currentMatches', async (req, res) => {
+  const sqlQuery = `
+    SELECT 
+        m.match_id,
+        DATE_FORMAT(m.match_date, '%d-%m-%Y') AS match_date,
+        m.league_id,
+        m.season_id,
+        m.referee_id,
+        m.home_team,
+        m.away_team,
+        m.win_team,
+        m.draw,
+        m.result,
+        m.video_link
+    FROM matches m
+    WHERE m.match_date >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 7 DAY)
+      AND m.match_date < DATE_ADD(CURDATE(), INTERVAL 7 - WEEKDAY(CURDATE()) DAY)
+    ORDER BY m.match_date DESC;
+  `;
+
+  function parseDateDMY(dateStr) {
+    const [day, month, year] = dateStr.split('-');
+    return new Date(`${year}-${month}-${day}`);
+  }
+
+  const today = new Date();
+  const formattedDate = formatDateToDMY(today);
+
+  try {
+    const results = await db.executeQuery(sqlQuery);
+
+    const olderGames = results.filter(match => parseDateDMY(match.match_date) < today);
+    const newerGames = results.filter(match => parseDateDMY(match.match_date) >= today);
+
+    res.json({ olderGames, newerGames });
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+
 
 // POST Requests
 
