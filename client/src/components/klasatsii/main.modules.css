@@ -1,0 +1,77 @@
+.gallery-container {
+    margin: 1% 2%;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+}
+
+.gallery-heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-heading {
+    font-style: italic;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.gallery-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-list {
+    display: flex;
+    transition: transform 3s ease-in-out;
+    margin-top: 1%;
+    gap: 0.5%;
+}
+
+.gallery-item {
+    position: relative; 
+    flex: 0 0 20%;
+    transition: transform 3s ease-in-out;
+    overflow: hidden;
+    border-radius: 2%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 60vh; 
+    transition: transform 3s ease-in-out;
+}
+
+.gallery-container.cairo-page .gallery-item img {
+    height: auto; 
+}
+
+.gallery-item h3 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    color: white;
+    padding: 1.5em;
+    font-size: 1.5em;
+    z-index: 2;
+}
+
+
+
+.gallery-item h3 {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    color: white;
+    padding: 1.5em; 
+    font-size: 1.5em; 
+    z-index: 2;
+}

@@ -12,13 +12,6 @@ import { HallOfFame } from './components/hallOfFame/HallOfFame.jsx';
 import { Prava } from './components/novini/Prava.jsx';
 import { Nakazaniq } from './components/novini/Nakazaniq.jsx';
 import { MixZona } from './components/novini/Mixzona.jsx';
-import { SelectGolNaMesetsa } from './components/klasatsii/SelectGolNaMesetsa.jsx';
-import { KerelskiIgrachNaSedmitsata } from './components/klasatsii/KerelskiIgrachNaSedmitsata.jsx';
-import { GripSocksIgrachNaSedmitsata } from './components/klasatsii/GripSocksIgrachNaSedmitsata.jsx';
-import { VR7ServicesIgrachNaSedmitsata } from './components/klasatsii/VR7ServicesIgrachNaSedmitsata.jsx';
-import { BarberShopMartyGolNaSedmitsata } from './components/klasatsii/BarberShopMartyGolNaSedmitsata.jsx';
-import { CairoFareplay } from './components/klasatsii/CairoFarePlay.jsx';
-import { IgrataNaArabesk } from './components/klasatsii/IgrataNaArabesk.jsx';
 import { Select } from './components/sustezaniya/Select.jsx';
 import { SPLMalus } from './components/sustezaniya/SPLMalus.jsx';
 import { SPL1Cairo } from './components/sustezaniya/SPL1Cairo.jsx';
@@ -45,6 +38,7 @@ import { AdminItemPlayers } from './components/admin/AdminItems/AdminItemPlayers
 import toastConfig from './config/toastConfig.js';
 import { AdminHome } from './components/admin/AdminHome.jsx';
 import { AdminItemTeams } from './components/admin/AdminItems/AdminItemTeams.jsx';
+import { Gallery } from './components/klasatsii/main.jsx';
 
 const isAdminPath = location.pathname.startsWith('/admin');
 
@@ -61,13 +55,13 @@ function App() {
         <Route path={PATH.prava} element={<Prava />} />
         <Route path={PATH.nakazaniq} element={<Nakazaniq />} />
         <Route path={PATH.mixzona} element={<MixZona />} />
-        <Route path={PATH.SelectGolNaMesetsa} element={<SelectGolNaMesetsa />} />
-        <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<KerelskiIgrachNaSedmitsata />} />
-        <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<GripSocksIgrachNaSedmitsata />} />
-        <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<VR7ServicesIgrachNaSedmitsata />} />
-        <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<BarberShopMartyGolNaSedmitsata />} />
-        <Route path={PATH.CairoFareplay} element={<CairoFareplay />} />
-        <Route path={PATH.IgrataNaArabesk} element={<IgrataNaArabesk />} />
+        <Route path={PATH.SelectGolNaMesetsa} element={<Gallery />} />
+        <Route path={PATH.KerelskiIgrachNaSedmitsata} element={<Gallery />} />
+        <Route path={PATH.GripSocksIgrachNaSedmitsata} element={<Gallery />} />
+        <Route path={PATH.VR7ServicesIgrachNaSedmitsata} element={<Gallery />} />
+        <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<Gallery />} />
+        <Route path={PATH.CairoFareplay} element={<Gallery />} />
+        <Route path={PATH.IgrataNaArabesk} element={<Gallery />} />
         <Route path={PATH.superliga} element={<Select />} />
         <Route path={PATH.malus} element={<SPLMalus />} />
         <Route path={PATH.cairo} element={<SPL1Cairo />} />
