@@ -15,7 +15,7 @@ router.get('/cairo-fareplay', async (req, res) => {
 
 router.get('/vr7-igrach-sedmitsa', async (req, res) => {
     try {
-        const sqlQuery = 'SELECT a.image, p.`name` FROM awards_vr7 a INNER JOIN players p ON p.player_id = a.player_id';
+        const sqlQuery = 'SELECT a.image, p.`name` FROM awards_vr7services a INNER JOIN players p ON p.player_id = a.player_id';
         const results = await db.executeQuery(sqlQuery);
         res.json(results);
     } catch (error) {
