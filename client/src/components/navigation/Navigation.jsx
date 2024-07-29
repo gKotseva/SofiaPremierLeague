@@ -11,14 +11,14 @@ export function Navigation() {
             <div className='menu-container'>
                 <ul>
                     <li className='menu-item'><Link to="/">Начало</Link></li>
-                    <li className='menu-item'><Link>Новини <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Новини <span>&#x25BE;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/nakazaniq">Наказания</Link></li>
                             <li><Link to="/mix-zona">Миксзона</Link></li>
                             <li><Link to="/prava">Играчи със спрени състезателни права</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link>Класации <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Класации <span>&#x25BE;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/select-gol-mesets">Select - гол на месеца</Link></li>
                             <li><Link to="/igrata-arabesk">Играта на Arabesk</Link></li>
@@ -29,9 +29,9 @@ export function Navigation() {
                             <li><Link to="/cairo-fareplay">Cairo - феърплей</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link>Състезания <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Състезания <span>&#x25BE;</span></Link>
                         <ul className='dropdown'>
-                            <li><Link>Зимна купа SPL MK Football &#11166;</Link>
+                            <li><Link>Зимна купа SPL MK Football &#x25B8;</Link>
                                 <ul className='dropdown-second'>
                                     <li><Link to="/klasirane-programa-resultati">Класиране, програма, резултати – 2024</Link></li>
                                     <li><Link to="/shema-turnir">Схема на турнира - 2024</Link></li>
@@ -47,7 +47,7 @@ export function Navigation() {
                             <li><Link to="/spl5">SPL 5</Link></li>
                         </ul>
                     </li>
-                    <li className='menu-item'><Link>Статистика <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>Статистика <span>&#x25BE;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/statistika-superliga">Select Суперлига</Link></li>
                             <li><Link to="/statistika-malus">SPL Malus-Sport</Link></li>
@@ -62,7 +62,7 @@ export function Navigation() {
                         </ul>
                     </li>
                     <li className='menu-item'><Link to="/hall-of-fame">Hall of Fame</Link></li>
-                    <li className='menu-item'><Link>За нас <span>&#11167;</span></Link>
+                    <li className='menu-item'><Link>За нас <span>&#x25BE;</span></Link>
                         <ul className='dropdown'>
                             <li><Link to="/kontakti">Контакти</Link></li>
                             <li><Link to="/pravila">Правила</Link></li>

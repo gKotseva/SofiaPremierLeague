@@ -14,7 +14,6 @@ export function AdminItemTeams() {
         return <p>Item not found</p>;
     }
 
-    console.log(item)
 
     return (
         <div>
