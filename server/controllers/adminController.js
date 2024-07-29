@@ -112,16 +112,21 @@ router.get('/currentMatches', async (req, res) => {
     SELECT 
         m.match_id,
         DATE_FORMAT(m.match_date, '%d-%m-%Y') AS match_date,
-        m.league_id,
-        m.season_id,
-        m.referee_id,
-        m.home_team,
-        m.away_team,
-        m.win_team,
+        l.league_name,
+        s.seasons_name,
+        r.name,
+        th.team_name as home_team,
+        ta.team_name as away_team,
         m.draw,
         m.result,
         m.video_link
     FROM matches m
+    join leagues l on l.league_id=m.league_id
+	join seasons s on s.season_id=m.season_id
+	join referees r on r.referee_id=m.referee_id
+	join teams th on th.team_id=m.home_team
+	join teams ta on ta.team_id=m.away_team
+    join teams t on t.team_id=m.away_team
     WHERE m.match_date >= DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) + 7 DAY)
       AND m.match_date < DATE_ADD(CURDATE(), INTERVAL 7 - WEEKDAY(CURDATE()) DAY)
     ORDER BY m.match_date DESC;
