@@ -5,7 +5,9 @@ export function Navigation() {
     return (
         <>
             <div className="logo-container">
+                <img src='./malus.png' className='heading-image'/>
                 <img src="./spl-logo.png" className="logo" alt="SPL Logo" />
+                <img src='./sisolutions.png' className='heading-image'/>
             </div>
         
             <div className='menu-container'>

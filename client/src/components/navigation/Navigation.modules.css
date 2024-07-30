@@ -1,12 +1,19 @@
 .logo-container {
     display: flex;
-    justify-content: center;
-    padding: 2em 0em 2em 0em;
+    justify-content: space-between;
+    padding: 2em 2em 2em 2em;
+    align-items: center;
 }
 
 .logo {
-    width: 200px;
+    width: 15em;
     mix-blend-mode: multiply;
+}
+
+.heading-image {
+    width: 40em;
+    height: 8vh;
+    border-radius: 2em;
 }
 
 .menu-container {
