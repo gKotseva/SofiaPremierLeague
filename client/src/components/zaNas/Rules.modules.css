@@ -17,8 +17,37 @@ ol li:before {
 
 .important {
     color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: larger;
 }
 
 .rules-nested-list {
     margin-left: 1.3%;
+}
+
+.rules-heading {
+    text-align: center;
+    font-style: italic;
+    font-size: 3em;
+}
+
+.rules-container {
+    width: 97%;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.rules-container h2 {
+    margin-top: 1%;
+}
+
+.rules-container h4 {
+    margin-top: 1%;
+}
+
+.important-span {
+    color: red;
 }
