@@ -1,0 +1,24 @@
+.rules-list {
+    margin-left: 2%;
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+}
+
+.important {
+    color: red;
+}
+
+.rules-nested-list {
+    margin-left: 1.3%;
+}

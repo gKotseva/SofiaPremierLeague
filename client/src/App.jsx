@@ -7,7 +7,7 @@ import { PATH } from './paths.js';
 import { HomeMain } from './components/home/HomeMain.jsx';
 import { Contact } from './components/zaNas/Contact.jsx';
 import { Navigation } from './components/navigation/Navigation.jsx';
-import { Pravila } from './components/zaNas/Pravila.jsx';
+import { Rules } from './components/zaNas/Rules.jsx';
 import { HallOfFame } from './components/hallOfFame/HallOfFame.jsx';
 import { Prava } from './components/novini/Prava.jsx';
 import { Nakazaniq } from './components/novini/Nakazaniq.jsx';
@@ -50,7 +50,7 @@ function App() {
       <Routes>
         <Route path={PATH.home} element={<HomeMain />} />
         <Route path={PATH.kontakti} element={<Contact />} />
-        <Route path={PATH.pravila} element={<Pravila />} />
+        <Route path={PATH.pravila} element={<Rules />} />
         <Route path={PATH.hallOfFame} element={<HallOfFame />} />
         <Route path={PATH.prava} element={<Prava />} />
         <Route path={PATH.nakazaniq} element={<Nakazaniq />} />
