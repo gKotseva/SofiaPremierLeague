@@ -1,0 +1,14 @@
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 52.2vh;
+    animation-duration: 6s;
+    animation-name: opacity;
+}
+
+
+@keyframes opacity {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
