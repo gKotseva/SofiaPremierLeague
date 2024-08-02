@@ -43,10 +43,10 @@ export function Matches() {
                             <tr key={m.match_id}>
                                 <td>{m.match_date}</td>
                                 <td>{m.home_team}</td>
-                                <td>{m.result}</td>
+                                <td>{m.result ? m.result : '-'}</td>
                                 <td>{m.away_team }</td>
-                                <td>{m.field}</td>
-                                <td>{/* Day of the week, if needed */}</td>
+                                <td>{m.field ? m.field : '-'}</td>
+                                <td>{m.day ? m.day : '-'}</td>
                             </tr>
                         ))}
                     </tbody>
