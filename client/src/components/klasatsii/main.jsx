@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { getArabesk, getGripSocks, getKerelski, getVR7, getCairo } from "../../services/klasatsiiService";
 import './main.modules.css';
@@ -11,6 +11,7 @@ export function Gallery() {
     const [pageClass, setPageClass] = useState('');
 
     const location = useLocation();
+    const intervalRef = useRef(null);
 
     useEffect(() => {
         const fetchData = async (request) => {
@@ -71,19 +72,36 @@ export function Gallery() {
         setDescription(currentDescription);
         setPageClass(className);
 
+        // Cleanup interval on data fetch change
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+
     }, [location.pathname]);
 
     useEffect(() => {
+        // Clear existing interval if any
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+
         if (info.length >= 6) {
-            const interval = setInterval(() => {
+            intervalRef.current = setInterval(() => {
                 setCurrentIndex(prevIndex => (prevIndex + 1) % info.length);
             }, 3000);
-
-            return () => clearInterval(interval);
         } else {
             setCurrentIndex(0);
         }
-    }, [info.length, info]);
+
+        // Cleanup function to clear interval
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [info]);
 
     return (
         <div className={`gallery-container ${pageClass}`}>
@@ -92,7 +110,7 @@ export function Gallery() {
                 <p className="gallery-description">{description}</p>
             </div>
             <div className='gallery-image-container'>
-                <ul className='gallery-list' style={{ transform: `translateX(-${currentIndex * 100 / 5}%)` }}>
+                <ul className='gallery-list' style={{ transform: `translateX(-${currentIndex * 100 / Math.min(info.length, 5)}%)` }}>
                     {info.map((item, index) => (
                         <li
                             key={index}

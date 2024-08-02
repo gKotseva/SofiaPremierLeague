@@ -1,13 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 2em 2em 2em;
+    align-items: center;
+}
+
+.logo {
+    width: 15em;
+    mix-blend-mode: multiply;
+}
+
+.heading-image {
+    width: 40em;
+    height: 8vh;
+    border-radius: 2em;
+}
 
 .menu-container {
     display: flex;
     justify-content: center;
     background-color: black;
     padding: 2em;
-    border-bottom: 2px solid white;
-    animation-name: opacity;
-    animation-duration: 6s;
 }
 
 .menu-container ul {
@@ -82,7 +95,7 @@
     padding: 3em 0em 1em 1em;
     position: absolute;
     margin-left: 14em;
-    top: -60%;
+    top: -60%; /* Position the dropdown vertically at 50% from the top */
     z-index: 1000;
     transition: visibility 0.4s, opacity 0.4s;
     border-radius: 20px;
@@ -103,4 +116,52 @@
 @keyframes opacity {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.heading-image:nth-of-type(1) {
+    animation: slideInFromLeft 2s ease;
+}
+
+.heading-image:nth-of-type(3) {
+    animation: slideInFromRight 2s ease;
+}
+
+@keyframes menuAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes logoAnimation {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
