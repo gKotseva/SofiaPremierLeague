@@ -44,7 +44,18 @@
 
 .forbidden-players {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 2em;
-    margin-top: 2em;
+    text-align: center;
+    gap: 1em;
+    margin: 2em auto;
+    border: 1px solid rgb(83, 227, 227); 
+    width: 20%;
+    padding: 1em;
+}
+
+.forbidden-players hr {
+    background-color: rgb(83, 227, 227); 
+    height: 1px; 
+    border: none; 
 }
