@@ -25,6 +25,7 @@ export function Matches() {
 
     return (
         <>
+        <div className="table-results-admin">
             <div className='results'>
                 <h1>Тази седмица</h1>
                 <table>
@@ -52,6 +53,8 @@ export function Matches() {
                     </tbody>
                 </table>
             </div>
+            </div>
         </>
+
     )
 }
