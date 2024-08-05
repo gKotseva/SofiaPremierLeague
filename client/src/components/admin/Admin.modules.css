@@ -439,7 +439,7 @@
 
 .dropdown-name {
     cursor: pointer;
-    background-color: #00563B;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -456,13 +456,14 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
+    width: 15em;
     z-index: 1;
     margin: 1px 0 0 0;
     padding: 0;
     list-style: none;
     border-radius: 5px;
     overflow: hidden;
+    background-color: black;
 }
 
 .dropdown-container:hover .dropdown-options ul {
@@ -475,11 +476,14 @@
     font-size: 14px;
     font-family: Arial, sans-serif;
     text-align: left;
-    border-bottom: 1px solid #00563B;
+    color: white;
 }
 
 .dropdown-options ul li:hover {
     background-color: #C5EBAA;
+    color: black;
 }
 
-
+.table-results-admin {
+    margin-top: 2em;
+}

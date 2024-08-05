@@ -3,15 +3,17 @@
     border-collapse: collapse;
 }
 .hall-of-fame-table h1 {
-    margin: 1.5em 0em;
     text-align: center;
+    background-color: #99BC85;
+    padding: 1em;
 }
 .hall-of-fame thead {
-    background-color: #80808088;
+    background-color: #639645;
 }
 
 .hall-of-fame thead th {
     padding: 10px;
+    color: white;
 }
 
 .hall-of-fame th {
@@ -54,7 +56,6 @@
     text-align: center;
     margin-top: 2em;
 }
-
 
 .hall-of-fame-container h1 {
     margin-bottom: 2em;
@@ -114,4 +115,13 @@
 
 .animate-drop {
     animation: dropAnimation 0.8s ease-out forwards;
+}
+
+
+.hall-of-fame td span {
+    transition: transform 0.3s ease;
+}
+
+.hall-of-fame td:hover span {
+    transform: scale(1.2);
 }

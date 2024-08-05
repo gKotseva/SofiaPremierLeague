@@ -32,12 +32,13 @@ ol li:before {
     text-align: center;
     font-style: italic;
     font-size: 3em;
+    background-color: #99BC85;
+    padding: 0.5em;
 }
 
 .rules-container {
-    width: 97%;
-    align-items: center;
-    margin-left: 2%;
+    width: 77%;
+    margin: 0 auto;
 }
 
 .rules-container h2 {
@@ -50,4 +51,8 @@ ol li:before {
 
 .important-span {
     color: red;
+}
+
+hr {
+    border-color: #9df46a;
 }
