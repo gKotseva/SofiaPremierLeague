@@ -1,6 +1,25 @@
+import { useEffect, useState } from 'react'
 import './TableStandings.modules.css'
+import { getLineups } from '../../../../services/lineupsService'
 
 export function TableStandings () {
+    const [lineups, setLineups] = useState([])
+
+    useEffect(() => {
+        const fetchLineups = async () => {
+            try {
+                const response = await getLineups()
+
+                console.log(response)
+
+
+            } catch (error) {
+                console.log(error)
+
+            }
+        }
+        fetchLineups()
+    })
     return (
         <>
         <div className='standings'>
