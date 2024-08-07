@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('../db');
+const { statsPerTeamLeagueSeason } = require('../sqlQueries');
 
 router.get('/nakazaniq', async (req, res) => {
     try {
@@ -79,6 +80,20 @@ where season_id=8 and league_id=47;
       console.error('Error executing query:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
-  })
+})
+
+router.get('/stats', async (req, res) => {
+  const getSeasons = `select * from seasons order by season_id desc`
+  try {
+    const [stats, seasons] = await Promise.all([
+      db.executeQuery(statsPerTeamLeagueSeason),
+      db.executeQuery(getSeasons),
+    ]);
+    res.json({stats, seasons})
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+})
 
 module.exports = router;
