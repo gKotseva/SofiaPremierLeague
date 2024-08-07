@@ -60,3 +60,10 @@
     transition: ease-in 0.4s;
 }
 
+.standings tbody tr:nth-child(1){
+    background-color: #4a7f2b;
+}
+
+.standings tbody tr:nth-child(2),.standings tbody tr:nth-child(3) {
+    background-color: #70af4b;
+}
