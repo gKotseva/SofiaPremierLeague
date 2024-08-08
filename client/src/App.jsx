@@ -12,13 +12,6 @@ import { HallOfFame } from './components/hallOfFame/HallOfFame.jsx';
 import { Prava } from './components/novini/Prava.jsx';
 import { Nakazaniq } from './components/novini/Nakazaniq.jsx';
 import { MixZona } from './components/novini/Mixzona.jsx';
-import { Select } from './components/sustezaniya/Select.jsx';
-import { SPLMalus } from './components/sustezaniya/SPLMalus.jsx';
-import { SPL1Cairo } from './components/sustezaniya/SPL1Cairo.jsx';
-import { SPL2Flame } from './components/sustezaniya/SPL2Flame.jsx';
-import { SPL3Arabesk } from './components/sustezaniya/SPL3Arabesk.jsx';
-import { SPL4 } from './components/sustezaniya/SPL4.jsx';
-import { SPL5 } from './components/sustezaniya/SPL5.jsx';
 import { Arabesk } from './components/statistika/pages/Arabesk.jsx';
 import { Superliga } from './components/statistika/pages/Superliga.jsx';
 import { Malus } from './components/statistika/pages/Malus.jsx';
@@ -39,6 +32,7 @@ import toastConfig from './config/toastConfig.js';
 import { AdminHome } from './components/admin/AdminHome.jsx';
 import { AdminItemTeams } from './components/admin/AdminItems/AdminItemTeams.jsx';
 import { Gallery } from './components/klasatsii/main.jsx';
+import { Standings } from './components/sustezaniya/Standings.jsx';
 
 const isAdminPath = location.pathname.startsWith('/admin');
 
@@ -62,13 +56,13 @@ function App() {
         <Route path={PATH.BarberShopMartyGolNaSedmitsata} element={<Gallery />} />
         <Route path={PATH.CairoFareplay} element={<Gallery />} />
         <Route path={PATH.IgrataNaArabesk} element={<Gallery />} />
-        <Route path={PATH.superliga} element={<Select />} />
-        <Route path={PATH.malus} element={<SPLMalus />} />
-        <Route path={PATH.cairo} element={<SPL1Cairo />} />
-        <Route path={PATH.flame} element={<SPL2Flame />} />
-        <Route path={PATH.arabesk} element={<SPL3Arabesk />} />
-        <Route path={PATH.spl4} element={<SPL4 />} />
-        <Route path={PATH.spl5} element={<SPL5 />} />
+        <Route path={PATH.superliga} element={<Standings />} />
+        <Route path={PATH.malus} element={<Standings />} />
+        <Route path={PATH.cairo} element={<Standings />} />
+        <Route path={PATH.flame} element={<Standings />} />
+        <Route path={PATH.arabesk} element={<Standings />} />
+        <Route path={PATH.spl4} element={<Standings />} />
+        <Route path={PATH.spl5} element={<Standings />} />
         <Route path={PATH.statistikaSuperliga} element={<Superliga />} />
         <Route path={PATH.statistikaMalus} element={<Malus />} />
         <Route path={PATH.statistikaCairo} element={<Cairo />} />
