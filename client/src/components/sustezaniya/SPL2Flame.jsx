@@ -5,10 +5,11 @@ export function SPL2Flame() {
     const [stats, setStats] = useState([])
     const [seasons, setSeasons] = useState([])
 
-    useEffect(() => {
-        const loadStats = async () => {
+    const leagueId = 3
+
+        const loadStats = async (id) => {
             try {
-                const response = await fetchStats(3, 5); //fix
+                const response = await fetchStats(leagueId, id);
                 setStats(response.stats)
                 setSeasons(response.seasons)
             } catch (error) {
@@ -16,14 +17,21 @@ export function SPL2Flame() {
             }
         };
 
-        loadStats();
+    useEffect(() => {
+        loadStats(8)
     }, []);
+
+
+    const handleChange = (e) => {
+        const targetId = Number(e.target.value)
+        loadStats(targetId)
+    }
 
     return (
         <>
-            <select name="cars" id="cars">
+            <select name="cars" id="cars" onChange={handleChange}>
                 {seasons.map((season, index) => (
-                    <option value="volvo" key={index}>{season.seasons_name}</option>
+                    <option value={season.season_id} key={index}>{season.seasons_name}</option>
                 ))}
             </select>
             <div className='standings'>
