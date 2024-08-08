@@ -21,8 +21,6 @@ export function Matches() {
         fetchMatches()
     }, [])
 
-    console.log(newerGames)
-
     return (
         <>
         <div className="table-results-admin">

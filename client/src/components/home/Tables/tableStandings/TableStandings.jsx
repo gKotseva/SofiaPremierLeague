@@ -10,9 +10,6 @@ export function TableStandings () {
             try {
                 const response = await getLineups()
 
-                console.log(response)
-
-
             } catch (error) {
                 console.log(error)
 
