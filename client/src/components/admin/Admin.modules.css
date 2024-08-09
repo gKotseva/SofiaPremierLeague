@@ -487,3 +487,7 @@
 .table-results-admin {
     margin-top: 2em;
 }
+
+td button:hover {
+    cursor: pointer;
+}
