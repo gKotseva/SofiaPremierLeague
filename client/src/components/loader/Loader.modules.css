@@ -1,0 +1,19 @@
+.loading-container {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(141, 136, 136, 0.419);
+    backdrop-filter: blur(3px);
+    z-index: 9999;
+  }
+  
+  .loading img {
+    width: 150px;
+    height: 150px;
+    mix-blend-mode: multiply;
+  }
