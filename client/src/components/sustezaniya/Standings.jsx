@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useLocation } from 'react-router-dom'
 import { fetchStats } from "./utils";
+import { Loader } from '../loader/Loader';
 
 export function Standings() {
     const [stats, setStats] = useState([])
@@ -8,7 +9,8 @@ export function Standings() {
     const [league, setLeague] = useState(0)
     const [title, setTitle] = useState('')
     const [season, setSeason] = useState(8)
-
+    const [loading, setLoading] = useState(false)
+ 
     const location = useLocation()
     const path = location.pathname
 
@@ -58,12 +60,15 @@ export function Standings() {
     }, [league, season]);
 
     const loadStats = async (league_id, season_id) => {
+        setLoading(true)
         try {
             const response = await fetchStats(league_id, season_id);
             setStats(response.stats)
             setSeasons(response.seasons)
         } catch (error) {
             console.error("Error fetching stats:", error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -73,13 +78,13 @@ export function Standings() {
         loadStats(league, seasonTargetId)
     }
 
-    // Find the current season's name based on the selected season id
     const currentSeason = seasons.find(seasonObj => seasonObj.season_id === season);
     const currentSeasonName = currentSeason ? currentSeason.seasons_name : '';
 
     return (
         <>
-            <select name="cars" id="cars" onChange={handleChange}>
+            {loading && <Loader />}
+            <select name="seasons" id="seasons" onChange={handleChange}>
                 {seasons.map((seasonObj, index) => (
                     <option value={seasonObj.season_id} key={index}>{seasonObj.seasons_name}</option>
                 ))}
